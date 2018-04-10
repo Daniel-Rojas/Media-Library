@@ -1,0 +1,13 @@
+H:\Personal Projects\Github\Media-Library-Basics\MusicAccess\MediaInterfaces\MediaInterfaces\obj\Debug\MediaInterfaces.csprojResolveAssemblyReference.cache
+H:\Personal Projects\Github\Media-Library-Basics\MusicAccess\MediaInterfaces\MediaInterfaces\obj\Debug\MediaInterfaces.csproj.CoreCompileInputs.cache
+H:\Personal Projects\Github\Media-Library-Basics\MusicAccess\MediaInterfaces\MediaInterfaces\bin\Debug\MediaInterfaces.dll
+H:\Personal Projects\Github\Media-Library-Basics\MusicAccess\MediaInterfaces\MediaInterfaces\bin\Debug\MediaInterfaces.pdb
+H:\Personal Projects\Github\Media-Library-Basics\MusicAccess\MediaInterfaces\MediaInterfaces\bin\Debug\DataRetrieval.dll
+H:\Personal Projects\Github\Media-Library-Basics\MusicAccess\MediaInterfaces\MediaInterfaces\bin\Debug\MusicAccess.dll
+H:\Personal Projects\Github\Media-Library-Basics\MusicAccess\MediaInterfaces\MediaInterfaces\bin\Debug\MySql.Data.dll
+H:\Personal Projects\Github\Media-Library-Basics\MusicAccess\MediaInterfaces\MediaInterfaces\bin\Debug\DataRetrieval.pdb
+H:\Personal Projects\Github\Media-Library-Basics\MusicAccess\MediaInterfaces\MediaInterfaces\bin\Debug\MusicAccess.pdb
+H:\Personal Projects\Github\Media-Library-Basics\MusicAccess\MediaInterfaces\MediaInterfaces\bin\Debug\MySql.Data.xml
+H:\Personal Projects\Github\Media-Library-Basics\MusicAccess\MediaInterfaces\MediaInterfaces\obj\Debug\MediaInterfaces.csproj.CopyComplete
+H:\Personal Projects\Github\Media-Library-Basics\MusicAccess\MediaInterfaces\MediaInterfaces\obj\Debug\MediaInterfaces.dll
+H:\Personal Projects\Github\Media-Library-Basics\MusicAccess\MediaInterfaces\MediaInterfaces\obj\Debug\MediaInterfaces.pdb

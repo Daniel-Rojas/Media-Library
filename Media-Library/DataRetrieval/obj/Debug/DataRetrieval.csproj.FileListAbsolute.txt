@@ -1,0 +1,11 @@
+H:\Personal Projects\Github\Media-Library-Basics\MusicAccess\DataRetrieval\bin\Debug\DataRetrieval.dll
+H:\Personal Projects\Github\Media-Library-Basics\MusicAccess\DataRetrieval\bin\Debug\DataRetrieval.pdb
+H:\Personal Projects\Github\Media-Library-Basics\MusicAccess\DataRetrieval\bin\Debug\MusicAccess.dll
+H:\Personal Projects\Github\Media-Library-Basics\MusicAccess\DataRetrieval\bin\Debug\MusicAccess.pdb
+H:\Personal Projects\Github\Media-Library-Basics\MusicAccess\DataRetrieval\obj\Debug\DataRetrieval.csprojResolveAssemblyReference.cache
+H:\Personal Projects\Github\Media-Library-Basics\MusicAccess\DataRetrieval\obj\Debug\DataRetrieval.csproj.CoreCompileInputs.cache
+H:\Personal Projects\Github\Media-Library-Basics\MusicAccess\DataRetrieval\obj\Debug\DataRetrieval.csproj.CopyComplete
+H:\Personal Projects\Github\Media-Library-Basics\MusicAccess\DataRetrieval\obj\Debug\DataRetrieval.dll
+H:\Personal Projects\Github\Media-Library-Basics\MusicAccess\DataRetrieval\obj\Debug\DataRetrieval.pdb
+H:\Personal Projects\Github\Media-Library-Basics\MusicAccess\DataRetrieval\bin\Debug\MySql.Data.dll
+H:\Personal Projects\Github\Media-Library-Basics\MusicAccess\DataRetrieval\bin\Debug\MySql.Data.xml

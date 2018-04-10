@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<ArrayOfSong xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Song>
+    <title>All the Rage Back Home</title>
+    <artist>Interpol</artist>
+    <albumTitle>El Pintor</albumTitle>
+    <genre>Indie Rock</genre>
+    <filePath>H:\Daniel\Music\XMLSerializationDemo\All the Rage Back Home.mp3</filePath>
+    <trackNumber>0</trackNumber>
+  </Song>
+  <Song>
+    <title>Everything Is Wrong</title>
+    <artist>Interpol</artist>
+    <albumTitle>El Pintor</albumTitle>
+    <genre>Indie Rock</genre>
+    <filePath>H:\Daniel\Music\XMLSerializationDemo\Everything Is Wrong.mp3</filePath>
+    <trackNumber>0</trackNumber>
+  </Song>
+  <Song>
+    <title>My Desire</title>
+    <artist>Interpol</artist>
+    <albumTitle>El Pintor</albumTitle>
+    <genre>Indie Rock</genre>
+    <filePath>H:\Daniel\Music\XMLSerializationDemo\My Desire.mp3</filePath>
+    <trackNumber>0</trackNumber>
+  </Song>
+  <Song>
+    <title>Amazing</title>
+    <artist>Kanye West</artist>
+    <featuredArtist>Young Jeezy</featuredArtist>
+    <albumTitle>808s &amp; Heartbreak</albumTitle>\
+    <genre>Hip Hop</genre>
+    <filePath>H:\Daniel\Music\XMLSerializationDemo\Amazing.mp3</filePath>
+    <trackNumber>0</trackNumber>
+  </Song>
+  <Song>
+    <title>Drinking From The Bottle</title>
+    <artist>Calvin Harris</artist>
+    <featuredArtist>Tini Tempah</featuredArtist>
+    <albumTitle>18 Months</albumTitle>
+    <genre>EDM</genre>
+    <filePath>H:\Daniel\Music\XMLSerializationDemo\Drinking From The Bottle.mp3</filePath>
+    <trackNumber>0</trackNumber>
+  </Song>
+    <Song>
+    <title>Feel So Close</title>
+    <artist>Calvin Harris</artist>
+    <albumTitle>18 Months</albumTitle>
+    <genre>EDM</genre>
+    <filePath>H:\Daniel\Music\XMLSerializationDemo\Feel So Close.mp3</filePath>
+    <trackNumber>0</trackNumber>
+  </Song>
+    <Song>
+    <title>Gold Digger</title>
+    <artist>Kanye West</artist>
+    <featuredArtist>Jamie Foxx</featuredArtist>
+    <albumTitle>Late Registration</albumTitle>
+    <genre>Hip Hop</genre>
+    <filePath>H:\Daniel\Music\XMLSerializationDemo\Gold Digger.mp3</filePath>
+    <trackNumber>0</trackNumber>
+  </Song>
+    <Song>
+    <title>Heartless</title>
+    <artist>Kanye West</artist>
+    <albumTitle>808s &amp; Heartbreak</albumTitle>
+    <genre>Hip Hop</genre>
+    <filePath>H:\Daniel\Music\XMLSerializationDemo\Heartless.mp3</filePath>
+    <trackNumber>0</trackNumber>
+  </Song>
+    <Song>
+    <title>I Need Your Love</title>
+    <artist>Calvin Harris</artist>
+    <featuredArtist>Ellie Goulding</featuredArtist>
+    <albumTitle>18 Months</albumTitle>
+    <genre>EDM</genre>
+    <filePath>H:\Daniel\Music\XMLSerializationDemo\I Need Your Love.mp3</filePath>
+    <trackNumber>0</trackNumber>
+  </Song>
+  <Song>
+    <title>Love Lockdown</title>
+    <artist>Kanye West</artist>
+    <albumTitle>808s &amp; Heartbreak</albumTitle>
+    <genre>Hip Hop</genre>
+    <filePath>H:\Daniel\Music\XMLSerializationDemo\Love Lockdown.mp3</filePath>
+    <trackNumber>0</trackNumber>
+  </Song>
+</ArrayOfSong>
