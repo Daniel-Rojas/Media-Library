@@ -9,3 +9,14 @@ H:\Personal Projects\Github\Media-Library-Basics\MusicAccess\DataRetrieval\obj\D
 H:\Personal Projects\Github\Media-Library-Basics\MusicAccess\DataRetrieval\obj\Debug\DataRetrieval.pdb
 H:\Personal Projects\Github\Media-Library-Basics\MusicAccess\DataRetrieval\bin\Debug\MySql.Data.dll
 H:\Personal Projects\Github\Media-Library-Basics\MusicAccess\DataRetrieval\bin\Debug\MySql.Data.xml
+H:\Github\Media-Library\Media-Library\DataRetrieval\bin\Debug\DataRetrieval.dll
+H:\Github\Media-Library\Media-Library\DataRetrieval\bin\Debug\DataRetrieval.pdb
+H:\Github\Media-Library\Media-Library\DataRetrieval\bin\Debug\MusicAccess.dll
+H:\Github\Media-Library\Media-Library\DataRetrieval\bin\Debug\MySql.Data.dll
+H:\Github\Media-Library\Media-Library\DataRetrieval\bin\Debug\MusicAccess.pdb
+H:\Github\Media-Library\Media-Library\DataRetrieval\bin\Debug\MySql.Data.xml
+H:\Github\Media-Library\Media-Library\DataRetrieval\obj\Debug\DataRetrieval.csprojResolveAssemblyReference.cache
+H:\Github\Media-Library\Media-Library\DataRetrieval\obj\Debug\DataRetrieval.csproj.CoreCompileInputs.cache
+H:\Github\Media-Library\Media-Library\DataRetrieval\obj\Debug\DataRetrieval.csproj.CopyComplete
+H:\Github\Media-Library\Media-Library\DataRetrieval\obj\Debug\DataRetrieval.dll
+H:\Github\Media-Library\Media-Library\DataRetrieval\obj\Debug\DataRetrieval.pdb

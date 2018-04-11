@@ -150,11 +150,11 @@ namespace MusicAccess
             }
         }
 
-        public List<Song> ImportAllSongs()
+        public LinkedList<Song> ImportAllSongs()
         {
             string query = "SELECT * FROM songs";
 
-            List<Song> songList = new List<Song>();
+            LinkedList<Song> songList = new LinkedList<Song>();
 
             if (this.OpenConnection() == true)
             {
@@ -174,7 +174,7 @@ namespace MusicAccess
                     currentSong.genre = dataReader.GetString("song_album");
                     currentSong.trackNumber = dataReader.GetUInt32("song_track_number");
 
-                    songList.Add(currentSong);
+                    songList.AddLast(currentSong);
                 }
 
                 dataReader.Close();
@@ -187,11 +187,11 @@ namespace MusicAccess
             }
         }
 
-        public List<Album> ImportAllAlbums()
+        public LinkedList<Album> ImportAllAlbums()
         {
             string query = "SELECT * FROM albums";
 
-            List<Album> albumList = new List<Album>();
+            LinkedList<Album> albumList = new LinkedList<Album>();
 
             if (this.OpenConnection() == true)
             {
@@ -209,7 +209,7 @@ namespace MusicAccess
                     currentAlbum.numberOfTracks = dataReader.GetUInt32("album_num_tracks");
                     currentAlbum.photoFilePath = dataReader.GetString("album_photo_filepath");
 
-                    albumList.Add(currentAlbum);
+                    albumList.AddLast(currentAlbum);
                 }
 
                 dataReader.Close();
@@ -222,11 +222,11 @@ namespace MusicAccess
             }
         }
 
-        public List<Artist> ImportAllArtists()
+        public LinkedList<Artist> ImportAllArtists()
         {
             string query = "SELECT * FROM artists";
 
-            List<Artist> artistList = new List<Artist>();
+           LinkedList<Artist> artistList = new LinkedList<Artist>();
 
             if (this.OpenConnection() == true)
             {
@@ -242,7 +242,7 @@ namespace MusicAccess
                     currentArtist.description = dataReader.GetString("artist_description");
                     currentArtist.photoFilePath = dataReader.GetString("artist_photo_filepath");
 
-                    artistList.Add(currentArtist);
+                    artistList.AddLast(currentArtist);
                 }
 
                 dataReader.Close();

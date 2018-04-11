@@ -21,10 +21,11 @@ namespace DataRetieval
             }
         }
 
-        public List<Song> deserializeSongList()
+        public LinkedList<Song> deserializeSongList()
         {
             string songsFile = @".\Data\songs.xml";
             List<Song> songList = new List<Song>();
+            LinkedList<Song> songLinkedList = new LinkedList<Song>();
             if (File.Exists(songsFile))
             {
                 
@@ -34,14 +35,19 @@ namespace DataRetieval
                     songList = (List<Song>)serializer.Deserialize(stream);
                 }
                 
+                foreach (Song song in songList)
+                {
+                    songLinkedList.AddLast(song);
+                }   
             }
-            return songList;
+            return songLinkedList;
         }
 
-        public List<Album> deserializeAlbumList()
+        public LinkedList<Album> deserializeAlbumList()
         {
             string albumsFile = @".\Data\albums.xml";
             List<Album> albumList = new List<Album>();
+            LinkedList<Album> albumLinkedList = new LinkedList<Album>();
             if (File.Exists(albumsFile))
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(List<Album>));
@@ -49,14 +55,20 @@ namespace DataRetieval
                 {
                     albumList = (List<Album>)serializer.Deserialize(stream);
                 }
+
+                foreach (Album album in albumList)
+                {
+                    albumLinkedList.AddLast(album);
+                }
             }
-            return albumList;
+            return albumLinkedList;
         }
 
-        public List<Artist> deserializeArtistList()
+        public LinkedList<Artist> deserializeArtistList()
         {
             string artistsFile = @".\Data\artists.xml";
             List<Artist> artistList = new List<Artist>();
+            LinkedList<Artist> artistLinkedList = new LinkedList<Artist>();
             if (File.Exists(artistsFile))
             {
                 using (FileStream stream = File.OpenRead(artistsFile))
@@ -64,12 +76,18 @@ namespace DataRetieval
                     XmlSerializer serializer = new XmlSerializer(typeof(List<Artist>));
                     artistList = (List<Artist>)serializer.Deserialize(stream);
                 }
+
+                foreach (Artist artist in artistLinkedList)
+                {
+                    artistLinkedList.AddLast(artist);
+                }
             }
-            return artistList;
+            return artistLinkedList;
         }
 
-        public void serializeSongList(List<Song> songList)
+        public void serializeSongList(LinkedList<Song> songLinkedList)
         {
+            List<Song> songList = songLinkedList.ToList<Song>();
             using (Stream stream = new FileStream(@".\Data\songs.xml", FileMode.Create))
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(List<Song>));
@@ -77,8 +95,9 @@ namespace DataRetieval
             }
         }
 
-        public void serializeAlbumList(List<Album> albumList)
+        public void serializeAlbumList(LinkedList<Album> albumLinkedList)
         {
+            List<Album> albumList = albumLinkedList.ToList<Album>();
             using (Stream stream = new FileStream(@".\Data\albums.xml", FileMode.Create))
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(List<Album>));
@@ -86,8 +105,9 @@ namespace DataRetieval
             }
         }
 
-        public void serializeArtistList(List<Artist> artistList)
+        public void serializeArtistList(LinkedList<Artist> artistLinkedList)
         {
+            List<Artist> artistList = artistLinkedList.ToList<Artist>();
             using (Stream stream = new FileStream(@".\Data\artists.xml", FileMode.Create))
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(List<Artist>));

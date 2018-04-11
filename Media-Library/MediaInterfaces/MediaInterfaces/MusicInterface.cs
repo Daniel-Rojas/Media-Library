@@ -12,9 +12,9 @@ namespace MediaInterfaces
 
     public class MusicInterface
     {
-        public List<Song> totalSongList { get; set; }
-        public List<Album> totalAlbumList { get; set; }
-        public List<Artist> totalArtistList { get; set; }
+        public LinkedList<Song> totalSongList { get; set; }
+        public LinkedList<Album> totalAlbumList { get; set; }
+        public LinkedList<Artist> totalArtistList { get; set; }
 
         private SerialDataAccess serialData;
         private DatabaseDataAccess databaseData;
@@ -47,7 +47,7 @@ namespace MediaInterfaces
 
  
 
-                serialData.serializeSongList(totalSongList);
+                //serialData.serializeSongList(totalSongList);
                 
             }
         }

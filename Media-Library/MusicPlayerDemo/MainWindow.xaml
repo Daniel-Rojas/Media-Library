@@ -13,7 +13,7 @@
         </Grid.RowDefinitions>
 
 
-        <ListView Name="SongListView" Background="White" Grid.Row="0" MouseDoubleClick="SongListView_doubleClick" MouseDown="SongListView_MouseDown" SelectionChanged="SongListView_SelectionChanged">
+        <ListView Name="SongListView" Background="White" Grid.Row="0" MouseDoubleClick="SongListView_doubleClick" >
             <ListView.View>
                 <GridView>
                     <GridViewColumn  Header="Title" DisplayMemberBinding="{Binding title}" />

@@ -29,13 +29,9 @@ namespace MusicPlayerDemo
         private bool suppresssaMediaPositionUpdate = false;
         private double volumeBeforeMute = 0.00;
         private Song currentSong;
-        private int currentSongIndex = 0;
-        private int previousSongIndex = 0;
-        private int nextSongIndex = 0;
-        
-        
-
         private DispatcherTimer timer;
+        private int currentIndex;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -44,7 +40,10 @@ namespace MusicPlayerDemo
             mediaPlayer.MediaEnded += MediaPlayer_MediaEnded;
 
             SongListView.ItemsSource = music.totalSongList;
-           
+            currentSong = (Song)SongListView.Items[0];
+            mediaPlayer.Open(new Uri(currentSong.filePath));
+            SongListView.SelectedIndex = 0;
+
             timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += timer_Tick;
@@ -62,8 +61,10 @@ namespace MusicPlayerDemo
 
         private void MediaPlayer_MediaEnded(object sender, EventArgs e)
         {
-
-            SongListView.SelectedItems[0] = SongListView.Items[nextSongIndex];
+            SongListView.SelectedItems[0] = SongListView.Items[currentIndex + 1];
+            currentSong = (Song)SongListView.Items[currentIndex + 1];
+            currentIndex = currentIndex + 1;
+            playNewSong();
             //throw new NotImplementedException();
         }
 
@@ -89,73 +90,36 @@ namespace MusicPlayerDemo
                 mediaPlayer.Pause();
                 btnPlay_Pause.Content = "Play";
             }
-            
-        }
-        
-        private int findSelectedItem(Song song)
-        {
-            for (int i = 0; i < SongListView.Items.Count; ++i)
-            {
-                Song iteratorSong = (Song)SongListView.Items[i];
-                if (iteratorSong.filePath.Equals(song.filePath))
-                {
-                    return i;
-                }
-            }
-            return -1;
-        }
-
-        private void setNextPrevIndex()
-        {
-            if (currentSongIndex <= 0)
-            {
-                previousSongIndex = 0;
-                if (SongListView.Items.Count > 1)
-                {
-                    nextSongIndex = currentSongIndex + 1;
-                }
-                else
-                {
-                    nextSongIndex = 0;
-                }
-            }
-            else if (currentSongIndex == SongListView.Items.Count  - 1)
-            {
-                previousSongIndex = currentSongIndex - 1;
-                nextSongIndex = currentSongIndex;
-            }
-            else
-            {
-                previousSongIndex = currentSongIndex - 1;
-                nextSongIndex = currentSongIndex + 1;
-            }
-
-            
-
         }
 
         private void btnPrevious_Click(object sender, RoutedEventArgs e)
         {
-            if (previousSongIndex == currentSongIndex)
+            if (currentIndex == 0)
             {
                 playNewSong();
             }
             else
             {
-                SongListView.SelectedItems[0] = SongListView.Items[previousSongIndex];
+                SongListView.SelectedItems[0] = SongListView.Items[currentIndex - 1];
+                currentSong = (Song)SongListView.Items[currentIndex - 1];
+                currentIndex = currentIndex - 1;
+                playNewSong();
             }
 
         }
 
         private void btnNext_Click(object sender, RoutedEventArgs e)
         {
-            if (nextSongIndex == currentSongIndex)
+            if (currentIndex == SongListView.Items.Count - 1)
             {
                 playNewSong();
             }
             else
             {
-                SongListView.SelectedItems[0] = SongListView.Items[nextSongIndex];
+                SongListView.SelectedItems[0] = SongListView.Items[currentIndex + 1];
+                currentSong = (Song)SongListView.Items[currentIndex + 1];
+                currentIndex = currentIndex + 1;
+                playNewSong();
             }
 
         }
@@ -198,16 +162,10 @@ namespace MusicPlayerDemo
         {
             if (SongListView.SelectedItems.Count > 0)
             {
-
                 currentSong = (Song)SongListView.SelectedItems[0];
+                currentIndex = SongListView.SelectedIndex;
                 playNewSong();
             }
-        }
-
-        private void SongListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            currentSong = (Song)SongListView.SelectedItems[0];
-            playNewSong();
         }
 
         private void playNewSong()
@@ -215,13 +173,6 @@ namespace MusicPlayerDemo
             mediaPlayer.Open(new Uri(currentSong.filePath));
             mediaPlayer.Stop();
             mediaPlayer.Play();
-            currentSongIndex = findSelectedItem(currentSong);
-            setNextPrevIndex();
-        }
-
-        private void SongListView_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-
         }
     }
 }

@@ -11,3 +11,16 @@ H:\Personal Projects\Github\Media-Library-Basics\MusicAccess\MediaInterfaces\Med
 H:\Personal Projects\Github\Media-Library-Basics\MusicAccess\MediaInterfaces\MediaInterfaces\obj\Debug\MediaInterfaces.csproj.CopyComplete
 H:\Personal Projects\Github\Media-Library-Basics\MusicAccess\MediaInterfaces\MediaInterfaces\obj\Debug\MediaInterfaces.dll
 H:\Personal Projects\Github\Media-Library-Basics\MusicAccess\MediaInterfaces\MediaInterfaces\obj\Debug\MediaInterfaces.pdb
+H:\Github\Media-Library\Media-Library\MediaInterfaces\MediaInterfaces\bin\Debug\MediaInterfaces.dll
+H:\Github\Media-Library\Media-Library\MediaInterfaces\MediaInterfaces\bin\Debug\MediaInterfaces.pdb
+H:\Github\Media-Library\Media-Library\MediaInterfaces\MediaInterfaces\bin\Debug\DataRetrieval.dll
+H:\Github\Media-Library\Media-Library\MediaInterfaces\MediaInterfaces\bin\Debug\MusicAccess.dll
+H:\Github\Media-Library\Media-Library\MediaInterfaces\MediaInterfaces\bin\Debug\MySql.Data.dll
+H:\Github\Media-Library\Media-Library\MediaInterfaces\MediaInterfaces\bin\Debug\DataRetrieval.pdb
+H:\Github\Media-Library\Media-Library\MediaInterfaces\MediaInterfaces\bin\Debug\MusicAccess.pdb
+H:\Github\Media-Library\Media-Library\MediaInterfaces\MediaInterfaces\bin\Debug\MySql.Data.xml
+H:\Github\Media-Library\Media-Library\MediaInterfaces\MediaInterfaces\obj\Debug\MediaInterfaces.csprojResolveAssemblyReference.cache
+H:\Github\Media-Library\Media-Library\MediaInterfaces\MediaInterfaces\obj\Debug\MediaInterfaces.csproj.CoreCompileInputs.cache
+H:\Github\Media-Library\Media-Library\MediaInterfaces\MediaInterfaces\obj\Debug\MediaInterfaces.csproj.CopyComplete
+H:\Github\Media-Library\Media-Library\MediaInterfaces\MediaInterfaces\obj\Debug\MediaInterfaces.dll
+H:\Github\Media-Library\Media-Library\MediaInterfaces\MediaInterfaces\obj\Debug\MediaInterfaces.pdb
