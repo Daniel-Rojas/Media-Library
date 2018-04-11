@@ -26,8 +26,8 @@ namespace MusicAccess
         {
             server = "localhost";
             database = "Media_Library";
-            userID = "drojas95";
-            password = "Napoleon113";
+            userID = "";
+            password = "";
             string connectionString = "SERVER=" + server + ";" + "DATABASE=" +
                                       database + ";" + "UID=" + userID + ";" + "PASSWORD=" + password + ";";
 
