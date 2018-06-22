@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml.Serialization;
 using DataRetrieval;
 using MusicDataTypes;
 
 namespace MediaInterfaces
 {
-
     public class MusicInterface
     {
         public List<Song> totalSongList { get; set; }

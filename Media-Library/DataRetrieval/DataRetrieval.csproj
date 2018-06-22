@@ -45,14 +45,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MusicDataTypes\MusicDataTypes.csproj">
-      <Project>{FA99CA4B-312F-44C3-8808-7C20AA934567}</Project>
+      <Project>{B1D4D6B7-5ED5-47DB-92E2-98680A5F06FB}</Project>
       <Name>MusicDataTypes</Name>
     </ProjectReference>
   </ItemGroup>

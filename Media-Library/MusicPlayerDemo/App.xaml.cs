@@ -8,7 +8,6 @@ using System.Windows;
 
 namespace MusicPlayerDemo
 {
-    using MediaInterfaces;
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>

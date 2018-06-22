@@ -14,8 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
-using MediaInterfaces;
 using MusicDataTypes;
+using MediaInterfaces;
 
 namespace MusicPlayerDemo
 {
