@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2015
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicAccess", "MusicAccess\MusicAccess.csproj", "{649A6E0F-F0DD-4F2D-BAD7-95A479A79CB1}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataRetrieval", "DataRetrieval\DataRetrieval.csproj", "{C042FE7E-F280-4154-ACAA-353F3011D3EE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaInterfaces", "MediaInterfaces\MediaInterfaces\MediaInterfaces.csproj", "{FE2DBFDE-970D-443A-ABAF-45B57AE9A703}"
@@ -13,16 +11,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicPlayerDemo", "MusicPla
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestSerialization", "TestSerialization\TestSerialization.csproj", "{89D0111F-0749-42DA-933D-BE4EAC6DF76E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicDataTypes", "MusicDataTypes\MusicDataTypes.csproj", "{FA99CA4B-312F-44C3-8808-7C20AA934567}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{649A6E0F-F0DD-4F2D-BAD7-95A479A79CB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{649A6E0F-F0DD-4F2D-BAD7-95A479A79CB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{649A6E0F-F0DD-4F2D-BAD7-95A479A79CB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{649A6E0F-F0DD-4F2D-BAD7-95A479A79CB1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C042FE7E-F280-4154-ACAA-353F3011D3EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C042FE7E-F280-4154-ACAA-353F3011D3EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C042FE7E-F280-4154-ACAA-353F3011D3EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +35,10 @@ Global
 		{89D0111F-0749-42DA-933D-BE4EAC6DF76E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89D0111F-0749-42DA-933D-BE4EAC6DF76E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89D0111F-0749-42DA-933D-BE4EAC6DF76E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA99CA4B-312F-44C3-8808-7C20AA934567}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA99CA4B-312F-44C3-8808-7C20AA934567}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA99CA4B-312F-44C3-8808-7C20AA934567}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA99CA4B-312F-44C3-8808-7C20AA934567}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,6 +1,0 @@
-H:\Personal Projects\Github\Media-Library-Basics\MusicAccess\MusicAccess\bin\Debug\MusicAccess.dll
-H:\Personal Projects\Github\Media-Library-Basics\MusicAccess\MusicAccess\bin\Debug\MusicAccess.pdb
-H:\Personal Projects\Github\Media-Library-Basics\MusicAccess\MusicAccess\obj\Debug\MusicAccess.csprojResolveAssemblyReference.cache
-H:\Personal Projects\Github\Media-Library-Basics\MusicAccess\MusicAccess\obj\Debug\MusicAccess.csproj.CoreCompileInputs.cache
-H:\Personal Projects\Github\Media-Library-Basics\MusicAccess\MusicAccess\obj\Debug\MusicAccess.dll
-H:\Personal Projects\Github\Media-Library-Basics\MusicAccess\MusicAccess\obj\Debug\MusicAccess.pdb

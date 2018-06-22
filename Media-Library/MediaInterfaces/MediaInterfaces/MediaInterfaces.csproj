@@ -48,9 +48,9 @@
       <Project>{c042fe7e-f280-4154-acaa-353f3011d3ee}</Project>
       <Name>DataRetrieval</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\MusicAccess\MusicAccess.csproj">
-      <Project>{649a6e0f-f0dd-4f2d-bad7-95a479a79cb1}</Project>
-      <Name>MusicAccess</Name>
+    <ProjectReference Include="..\..\MusicDataTypes\MusicDataTypes.csproj">
+      <Project>{FA99CA4B-312F-44C3-8808-7C20AA934567}</Project>
+      <Name>MusicDataTypes</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

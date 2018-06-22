@@ -13,13 +13,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
+using MediaInterfaces;
+using MusicDataTypes;
 
 namespace MusicPlayerDemo
 {
-    using MediaInterfaces;
-    using MusicAccess;
-    using System.Windows.Threading;
-
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -35,13 +34,13 @@ namespace MusicPlayerDemo
         public MainWindow()
         {
             InitializeComponent();
-            MusicInterface music = new MusicInterface(false);
+            MusicInterface music = new MusicInterface();
             mediaPlayer.MediaOpened += MediaPlayer_MediaOpened;
             mediaPlayer.MediaEnded += MediaPlayer_MediaEnded;
 
             SongListView.ItemsSource = music.totalSongList;
             currentSong = (Song)SongListView.Items[0];
-            mediaPlayer.Open(new Uri(currentSong.filePath));
+            mediaPlayer.Open(new Uri(currentSong.FilePath));
             SongListView.SelectedIndex = 0;
 
             timer = new DispatcherTimer();
@@ -170,7 +169,7 @@ namespace MusicPlayerDemo
 
         private void playNewSong()
         {
-            mediaPlayer.Open(new Uri(currentSong.filePath));
+            mediaPlayer.Open(new Uri(currentSong.FilePath));
             mediaPlayer.Stop();
             mediaPlayer.Play();
         }
