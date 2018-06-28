@@ -34,144 +34,132 @@ namespace MusicPlayerDemo
         public MainWindow()
         {
             InitializeComponent();
-            MusicInterface music = new MusicInterface();
-            mediaPlayer.MediaOpened += MediaPlayer_MediaOpened;
-            mediaPlayer.MediaEnded += MediaPlayer_MediaEnded;
+            //MusicInterface music = new MusicInterface();
+            //mediaPlayer.MediaOpened += MediaPlayer_MediaOpened;
+            //mediaPlayer.MediaEnded += MediaPlayer_MediaEnded;
 
-            SongListView.ItemsSource = music.totalSongList;
-            currentSong = (Song)SongListView.Items[0];
-            mediaPlayer.Open(new Uri(currentSong.FilePath));
-            SongListView.SelectedIndex = 0;
+            //SongListView.ItemsSource = music.totalSongList;
+            //currentSong = (Song)SongListView.Items[0];
+            //mediaPlayer.Open(new Uri(currentSong.FilePath));
+            //SongListView.SelectedIndex = 0;
 
-            timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromSeconds(1);
-            timer.Tick += timer_Tick;
+            //timer = new DispatcherTimer();
+            //timer.Interval = TimeSpan.FromSeconds(1);
+            //timer.Tick += timer_Tick;
             
         }
 
-        private void MediaPlayer_MediaOpened(object sender, EventArgs e)
-        {
+        //private void MediaPlayer_MediaOpened(object sender, EventArgs e)
+        //{
 
-            AudioPosition.Maximum = mediaPlayer.NaturalDuration.TimeSpan.TotalSeconds;
-            durationTime.Content = mediaPlayer.NaturalDuration.TimeSpan.ToString(@"mm\:ss");
-            timer.Start();
-            //throw new NotImplementedException();
-        }
+        //    AudioPosition.Maximum = mediaPlayer.NaturalDuration.TimeSpan.TotalSeconds;
+        //    durationTime.Content = mediaPlayer.NaturalDuration.TimeSpan.ToString(@"mm\:ss");
+        //    timer.Start();
+        //    //throw new NotImplementedException();
+        //}
 
-        private void MediaPlayer_MediaEnded(object sender, EventArgs e)
-        {
-            SongListView.SelectedItems[0] = SongListView.Items[currentIndex + 1];
-            currentSong = (Song)SongListView.Items[currentIndex + 1];
-            currentIndex = currentIndex + 1;
-            playNewSong();
-            //throw new NotImplementedException();
-        }
+        //private void MediaPlayer_MediaEnded(object sender, EventArgs e)
+        //{
+        //    SongListView.SelectedItems[0] = SongListView.Items[currentIndex + 1];
+        //    currentSong = (Song)SongListView.Items[currentIndex + 1];
+        //    currentIndex = currentIndex + 1;
+        //    playNewSong();
+        //    //throw new NotImplementedException();
+        //}
 
-        void timer_Tick(object sender, EventArgs e)
-        {
-            if (mediaPlayer.Source != null)
-            {
-                currentTime.Content = mediaPlayer.Position.ToString(@"mm\:ss");
-                suppresssaMediaPositionUpdate = true;
-                AudioPosition.Value = mediaPlayer.Position.TotalSeconds;
-            }
-        }
+        //void timer_Tick(object sender, EventArgs e)
+        //{
+        //    if (mediaPlayer.Source != null)
+        //    {
+        //        currentTime.Content = mediaPlayer.Position.ToString(@"mm\:ss");
+        //        suppresssaMediaPositionUpdate = true;
+        //        AudioPosition.Value = mediaPlayer.Position.TotalSeconds;
+        //    }
+        //}
 
         private void btnPlay_Pause_Click(object sender, RoutedEventArgs e)
         {
-            if (btnPlay_Pause.Content.ToString() == "Play")
-            {
-                mediaPlayer.Play();
-                btnPlay_Pause.Content = "Pause";
-            }
-            else
-            {
-                mediaPlayer.Pause();
-                btnPlay_Pause.Content = "Play";
-            }
+            //if (btnPlay_Pause.Content.ToString() == "Play")
+            //{
+            //    mediaPlayer.Play();
+            //    btnPlay_Pause.Content = "Pause";
+            //}
+            //else
+            //{
+            //    mediaPlayer.Pause();
+            //    btnPlay_Pause.Content = "Play";
+            //}
         }
 
         private void btnPrevious_Click(object sender, RoutedEventArgs e)
         {
-            if (currentIndex == 0)
-            {
-                playNewSong();
-            }
-            else
-            {
-                SongListView.SelectedItems[0] = SongListView.Items[currentIndex - 1];
-                currentSong = (Song)SongListView.Items[currentIndex - 1];
-                currentIndex = currentIndex - 1;
-                playNewSong();
-            }
+            //if (currentIndex == 0)
+            //{
+            //    playNewSong();
+            //}
+            //else
+            //{
+            //    SongListView.SelectedItems[0] = SongListView.Items[currentIndex - 1];
+            //    currentSong = (Song)SongListView.Items[currentIndex - 1];
+            //    currentIndex = currentIndex - 1;
+            //    playNewSong();
+            //}
 
         }
 
         private void btnNext_Click(object sender, RoutedEventArgs e)
         {
-            if (currentIndex == SongListView.Items.Count - 1)
-            {
-                playNewSong();
-            }
-            else
-            {
-                SongListView.SelectedItems[0] = SongListView.Items[currentIndex + 1];
-                currentSong = (Song)SongListView.Items[currentIndex + 1];
-                currentIndex = currentIndex + 1;
-                playNewSong();
-            }
+            //if (currentIndex == SongListView.Items.Count - 1)
+            //{
+            //    playNewSong();
+            //}
+            //else
+            //{
+            //    SongListView.SelectedItems[0] = SongListView.Items[currentIndex + 1];
+            //    currentSong = (Song)SongListView.Items[currentIndex + 1];
+            //    currentIndex = currentIndex + 1;
+            //    playNewSong();
+            //}
 
         }
 
         private void btnMute_Click(object sender, RoutedEventArgs e)
         {
-            if (mediaPlayer.Volume == 0)
-            {
-                sldrVolume.Value = volumeBeforeMute;
-                btnMute.Content = "Mute";
-            }
-            else
-            {
-                volumeBeforeMute = mediaPlayer.Volume * 100;
-                sldrVolume.Value = 0;
-                btnMute.Content = "Unmute";
-            }
-            
+            //if (mediaPlayer.Volume == 0)
+            //{
+            //    sldrVolume.Value = volumeBeforeMute;
+            //    btnMute.Content = "Mute";
+            //}
+            //else
+            //{
+            //    volumeBeforeMute = mediaPlayer.Volume * 100;
+            //    sldrVolume.Value = 0;
+            //    btnMute.Content = "Unmute";
+            //}
+
 
         }
 
-        private void sldrVolume_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-            mediaPlayer.Volume = (double)sldrVolume.Value / 100.0;
-        }
-
-        private void AudioPosition_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-            if (suppresssaMediaPositionUpdate)
-            {
-                suppresssaMediaPositionUpdate = false;
-            }
-            else
-            {
-                mediaPlayer.Position = TimeSpan.FromSeconds(AudioPosition.Value);
-            }
-        }
+        //    private void sldrVolume_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        //    {
+        //        mediaPlayer.Volume = (double)sldrVolume.Value / 100.0;
+        //    }
 
         private void SongListView_doubleClick(object sender, MouseButtonEventArgs e)
         {
-            if (SongListView.SelectedItems.Count > 0)
-            {
-                currentSong = (Song)SongListView.SelectedItems[0];
-                currentIndex = SongListView.SelectedIndex;
-                playNewSong();
-            }
+            //if (SongListView.SelectedItems.Count > 0)
+            //{
+            //    currentSong = (Song)SongListView.SelectedItems[0];
+            //    currentIndex = SongListView.SelectedIndex;
+            //    playNewSong();
+            //}
         }
 
-        private void playNewSong()
-        {
-            mediaPlayer.Open(new Uri(currentSong.FilePath));
-            mediaPlayer.Stop();
-            mediaPlayer.Play();
-        }
+        //    private void playNewSong()
+        //    {
+        //        mediaPlayer.Open(new Uri(currentSong.FilePath));
+        //        mediaPlayer.Stop();
+        //        mediaPlayer.Play();
+        //    }
     }
 }

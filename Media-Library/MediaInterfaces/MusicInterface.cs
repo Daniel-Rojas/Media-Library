@@ -14,6 +14,9 @@ namespace MediaInterfaces
         public List<Album> totalAlbumList { get; set; }
         public List<Artist> totalArtistList { get; set; }
 
+        public List<Song> ActiveSongList { get; set; }
+        
+
         private JsonDataAccess jsonData;
 
         public MusicInterface()

@@ -6,39 +6,47 @@
         xmlns:local="clr-namespace:MusicPlayerDemo"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="1000">
+    <Window.DataContext>
+        <local:DemoViewModel/>
+    </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="5*"/>
             <RowDefinition Height="1.5*" />
         </Grid.RowDefinitions>
 
-
-        <ListView Name="SongListView" Background="White" Grid.Row="0" MouseDoubleClick="SongListView_doubleClick" >
+        <ListView Background="White" 
+                  Grid.Row="0" 
+                  ItemsSource="{Binding Music.totalSongList}"
+                  MouseDoubleClick="SongListView_doubleClick"
+                  SelectedItem="{Binding CurrentSong, Mode=TwoWay}"
+                  >
             <ListView.View>
                 <GridView>
-                    <GridViewColumn  Header="Title" DisplayMemberBinding="{Binding title}" />
-                    <GridViewColumn Header="Artist" DisplayMemberBinding="{Binding artist}" />
-                    <GridViewColumn Header="Featured Artist" DisplayMemberBinding="{Binding featuredArtist}" />
-                    <GridViewColumn Header="Album" DisplayMemberBinding="{Binding albumTitle}" />
-                    <GridViewColumn Header="Genre" DisplayMemberBinding="{Binding genre}" />
-                    <GridViewColumn Header="Filepath" DisplayMemberBinding="{Binding filePath}" />
+                    <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Title}" />
+                    <GridViewColumn Header="Artist" DisplayMemberBinding="{Binding Artist}" />
+                    <GridViewColumn Header="Featured Artist" DisplayMemberBinding="{Binding FeaturedArtist}" />
+                    <GridViewColumn Header="Album" DisplayMemberBinding="{Binding AlbumTitle}" />
+                    <GridViewColumn Header="Genre" DisplayMemberBinding="{Binding Genre}" />
+                    <GridViewColumn Header="Filepath" DisplayMemberBinding="{Binding FilePath}" />
                 </GridView>
             </ListView.View>
         </ListView>
 
 
-        <StackPanel Grid.Row="1"  Margin="10">
-            <StackPanel Name="positionDetails" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 10">
-                <Label Name="currentTime" Content="00:00" />
-                <Slider Name="AudioPosition" Width="600" ValueChanged="AudioPosition_ValueChanged" VerticalAlignment="Center" />
-                <Label Name="durationTime" Content="00:00" />
+        <StackPanel Grid.Row="1" Margin="10">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 10">
+                <Label Content="{Binding AudioPosition, FallbackValue='00\:00'}" ContentStringFormat="mm\:ss"/>
+                <Slider Width="600" Value="{Binding SliderPosition, FallbackValue=0, Mode=TwoWay}" Maximum="{Binding SliderDuration}" IsMoveToPointEnabled="True" VerticalAlignment="Center" />
+                <Label Content="{Binding AudioDuration, FallbackValue='00\:00' }" ContentStringFormat="mm\:ss"/>
             </StackPanel>
             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-                <Button Name="btnPrevious" Click="btnPrevious_Click" Content="Prev" />
-                <Button Name="btnPlay_Pause" Click="btnPlay_Pause_Click" Content="Play" Margin="5 0"/>
-                <Button Name="btnNext" Click="btnNext_Click" Content="Next" />
-                <Button Name="btnMute" Margin="5 0"  Click="btnMute_Click" Content="Mute"/>
-                <Slider Name="sldrVolume" Maximum="100" Minimum="0"  ValueChanged="sldrVolume_ValueChanged" Width="120"  Value="50"/>
+                <Button Name="PrevButton" Command="{Binding PrevCommand}" Content="Prev" Margin="5 0"/>
+                <Button Name="PauseButton" Command="{Binding PauseCommand}" Content="Pause"  />
+                <Button Name="PlayButton" Content="Play" Command="{Binding PlayCommand}" Margin="5 0"/>
+                <Button Name="NextButton" Command="{Binding NextCommand}" Content="Next" />
+                <Button Name="MuteButton" Command="{Binding MuteCommand}" Content="Mute" Margin="5 0"/>
+                <Slider Name="VolumeSlider" Minimum="0" Maximum="1" Width="150" Value="{Binding Volume, Mode=TwoWay}" IsMoveToPointEnabled="True"/>
             </StackPanel>
         </StackPanel>
     </Grid>

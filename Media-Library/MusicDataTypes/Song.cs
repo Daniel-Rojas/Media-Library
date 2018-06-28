@@ -22,6 +22,19 @@ namespace MusicDataTypes
             Artist = artist;
             FilePath = filePath;
         }
+        public override bool Equals(object obj)
+        {
+            if (obj.GetType() == this.GetType())
+            {
+                Song objSong = (Song)obj;
+                if (objSong.Title == this.Title && objSong.Artist == this.Artist && objSong.FilePath == this.FilePath)
+                {
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
 
         public override string ToString()
         {
