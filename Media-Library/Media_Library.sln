@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicDataTypes", "MusicData
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaInterfaces", "MediaInterfaces\MediaInterfaces.csproj", "{2182E29E-A090-46DC-B12F-CF5306C132C6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaLibraryGUI", "MediaLibraryGUI\MediaLibraryGUI.csproj", "{822C2605-67C3-47D8-89DC-9BCDD2CD8532}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{2182E29E-A090-46DC-B12F-CF5306C132C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2182E29E-A090-46DC-B12F-CF5306C132C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2182E29E-A090-46DC-B12F-CF5306C132C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{822C2605-67C3-47D8-89DC-9BCDD2CD8532}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{822C2605-67C3-47D8-89DC-9BCDD2CD8532}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{822C2605-67C3-47D8-89DC-9BCDD2CD8532}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{822C2605-67C3-47D8-89DC-9BCDD2CD8532}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

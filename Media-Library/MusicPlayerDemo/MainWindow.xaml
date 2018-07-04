@@ -19,8 +19,7 @@
                   Grid.Row="0" 
                   ItemsSource="{Binding Music.totalSongList}"
                   MouseDoubleClick="SongListView_doubleClick"
-                  SelectedItem="{Binding CurrentSong, Mode=TwoWay}"
-                  >
+                  SelectedItem="{Binding CurrentSong, Mode=TwoWay}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Title}" />

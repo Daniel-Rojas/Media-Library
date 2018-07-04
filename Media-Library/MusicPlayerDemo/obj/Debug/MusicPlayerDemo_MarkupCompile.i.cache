@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Daniel Rojas\Documents\GitHub\Media-Library\Media-Library\MusicPlayerDemo\App.xaml
-11151548125
+5-502475398
 
-11-1006628185
+19-1308039711
 13519532737
-MainWindow.xaml;
+Views\AlbumPageView.xaml;MainWindow.xaml;Views\ArtistPageView.xaml;Views\MusicPageView.xaml;Views\SongPageView.xaml;
 
-True
+False
 
