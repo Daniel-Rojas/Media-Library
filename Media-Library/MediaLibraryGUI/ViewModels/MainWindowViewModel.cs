@@ -21,28 +21,47 @@ namespace MediaLibraryGUI.ViewModels
         private TextBlock _tvShowsMenuSelector;
         private string _frameView;
 
-        // Media Player
-        private readonly MediaPlayer _mediaPlayer;
-        private readonly DispatcherTimer _timer;
-        private TimeSpan _audioPosition;
-        private TimeSpan _audioDuration;
-        private double _sliderPosition;
-        private double _sliderDuration;
-        private double _volume;
-        private double _volumeBeforeMute;
-        private bool _isMuted;
-        private bool _isPaused;
-
         //Media Interfaces
         private readonly MusicInterface _music;
         //private readonly MoviesInterface _movies; 
         //private readonly TVInterface _tvshows;
 
+        // Media Player
+        private readonly MediaPlayer _mediaPlayer;
+        private readonly DispatcherTimer _timer;
+        private TimeSpan _mediaPosition;
+        private TimeSpan _mediaDuration;
+        private double _sliderPosition;
+        private double _sliderDuration;
+        private bool _suppressMediaPositionUpdate;
+        private double _volume;
+        private double _volumeBeforeMute;
+        private bool _isMuted;
+        private bool _isPaused;
+
+
+
         public MainWindowViewModel()
         {
+            //_music = new MusicInterface();
+
+            /***** Media Player *****/
+       
+            // Initializes Media Player
+            _mediaPlayer = new MediaPlayer();
+            _mediaPlayer.MediaOpened += OnMediaOpen;
+            _mediaPlayer.MediaEnded += OnMediaEnd;
+            _volume = 0.5;
+
+            // Initializes Timer
+            _timer = new DispatcherTimer();
+            _timer.Interval = TimeSpan.FromSeconds(1);
+            _timer.Tick += OnTimerTick;
+            _suppressMediaPositionUpdate = false;
 
         }
 
+        /********** Main Menu Function **********/
 
         public string FrameView
         {
@@ -94,7 +113,6 @@ namespace MediaLibraryGUI.ViewModels
                         OpenPage(value.Text);
                     }
                 }
-
             }
         }
 
@@ -126,23 +144,22 @@ namespace MediaLibraryGUI.ViewModels
                 FrameView = @"..\Views\SongsView.xaml";
                 FilmsMenuSelector = null;
                 TvShowsMenuSelector = null;
-
             }
             else if (page == "Albums")
             {
-                FrameView = @"Views\AlbumsView.xaml";
+                FrameView = @"..\Views\AlbumsView.xaml";
                 FilmsMenuSelector = null;
                 TvShowsMenuSelector = null;
             }
             else if (page == "Artists")
             {
-                FrameView = @"Views\ArtistsView.xaml";
+                FrameView = @"..\Views\ArtistsView.xaml";
                 FilmsMenuSelector = null;
                 TvShowsMenuSelector = null;
             }
             else if (page == "Playlists")
             {
-                FrameView = @"Views\PlaylistsView.xaml";
+                FrameView = @"..\Views\PlaylistsView.xaml";
                 FilmsMenuSelector = null;
                 TvShowsMenuSelector = null;
             }
@@ -150,25 +167,25 @@ namespace MediaLibraryGUI.ViewModels
             // Films Menu Options
             else if (page == "Movies")
             {
-                FrameView = @"Views\MoviesView.xaml";
+                FrameView = @"..\Views\MoviesView.xaml";
                 MusicMenuSelector = null;
                 TvShowsMenuSelector = null;
             }
             else if (page == "Actors")
             {
-                FrameView = @"ViewsActorsView.xaml";
+                FrameView = @"..\ViewsActorsView.xaml";
                 MusicMenuSelector = null;
                 TvShowsMenuSelector = null;
             }
             else if (page == "Directors")
             {
-                FrameView = @"Views\DirectorsView.xaml";
+                FrameView = @"..\Views\DirectorsView.xaml";
                 MusicMenuSelector = null;
                 TvShowsMenuSelector = null;
             }
             else if (page == "Studios")
             {
-                FrameView = @"Views\StudiosView.xaml";
+                FrameView = @"..\Views\StudiosView.xaml";
                 MusicMenuSelector = null;
                 TvShowsMenuSelector = null; 
             }
@@ -176,19 +193,109 @@ namespace MediaLibraryGUI.ViewModels
             // TV Shows Menu Options
             else if (page == "Series")
             {
-                FrameView = @"Views\SeriesView.xaml";
+                FrameView = @"..\Views\SeriesView.xaml";
                 MusicMenuSelector = null;
                 FilmsMenuSelector = null;
             }
             else if (page == "Networks")
             {
-                FrameView = @"Views\NetworksView.xaml";
+                FrameView = @"..\Views\NetworksView.xaml";
                 MusicMenuSelector = null;
                 FilmsMenuSelector = null;
             }
         }
 
+        /********** Media Player Functions **********/
 
+        public MusicInterface Music
+        {
+            get { return _music; }
+        }
+
+        public TimeSpan MediaPosition
+        {
+            get { return _mediaPosition; }
+            set
+            {
+                _mediaPosition = value;
+                OnPropertyRaised("MediaPosition");
+            }
+        }
+
+        public TimeSpan MediaDuration
+        {
+            get { return _mediaDuration; }
+            set
+            {
+                _mediaDuration = value;
+                OnPropertyRaised("MediaDuration");
+            }
+        }
+
+        public double SliderDuration
+        {
+            get { return _sliderDuration; }
+            set
+            {
+                _sliderDuration = value;
+                OnPropertyRaised("SliderDuration");
+            }
+        }
+
+        public double SliderPosition
+        {
+            get { return _sliderPosition; }
+            set
+            {
+                _sliderPosition = value;
+                OnPropertyRaised("SliderPosition");
+                if (_suppressMediaPositionUpdate)
+                {
+                    _suppressMediaPositionUpdate = false;
+                }
+                else
+                {
+                    _mediaPlayer.Position = TimeSpan.FromSeconds(value);
+                }
+            }
+        }
+
+        public double Volume
+        {
+            get { return _volume; }
+            set
+            {
+                _volume = value;
+                OnPropertyRaised("Volume");
+                _mediaPlayer.Volume = value;
+            }
+        }
+
+
+        private void OnMediaOpen(object sender, EventArgs e)
+        {
+            SliderDuration = _mediaPlayer.NaturalDuration.TimeSpan.TotalSeconds;
+            SliderPosition = 0.0;
+            MediaDuration = _mediaPlayer.NaturalDuration.TimeSpan;
+            _timer.Start();
+        }
+
+        private void OnMediaEnd(object sender, EventArgs e)
+        {
+            _mediaPlayer.Stop();
+
+        }
+
+        private void OnTimerTick(object sender, EventArgs e)
+        {
+            
+            if (_mediaPlayer.Source != null)
+            {
+                MediaPosition = _mediaPlayer.Position;
+                _suppressMediaPositionUpdate = true;
+                SliderPosition = _mediaPlayer.Position.TotalSeconds;
+            }
+        }
 
         private void OnPropertyRaised(string propertyname)
         {

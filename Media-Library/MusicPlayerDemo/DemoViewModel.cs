@@ -43,7 +43,7 @@ namespace MusicPlayerDemo
             _mediaPlayer = new MediaPlayer();
             _timer = new DispatcherTimer();
 
-            // Initialized the event Functions
+            // Initializes the event Functions
             _mediaPlayer.MediaOpened += OnAudioOpen;
             _mediaPlayer.MediaEnded += OnAudioEnd;
 

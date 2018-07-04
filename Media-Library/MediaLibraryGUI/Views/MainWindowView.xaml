@@ -77,6 +77,22 @@
                     <ScrollViewer Grid.Row="0" >
                         <Frame Source="{Binding FrameView}" />
                     </ScrollViewer>
+
+                    <StackPanel Grid.Row="1" Margin="10" VerticalAlignment="Center">
+                        <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" Margin="0 0 0 10">
+                            <Label Content="{Binding MediaPosition, FallbackValue='00\:00'}" ContentStringFormat="mm\:ss"/>
+                            <Slider Width="600" Value="{Binding SliderPosition, FallbackValue=0, Mode=TwoWay}" Maximum="{Binding SliderDuration}" IsMoveToPointEnabled="True" VerticalAlignment="Center" />
+                            <Label Content="{Binding MediaDuration, FallbackValue='00\:00' }" ContentStringFormat="mm\:ss"/>
+                        </StackPanel>
+                        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                            <Button Name="PrevButton" Command="{Binding PrevCommand}" Content="Prev" Margin="5 0"/>
+                            <Button Name="PauseButton" Command="{Binding PauseCommand}" Content="Pause"  />
+                            <Button Name="PlayButton" Content="Play" Command="{Binding PlayCommand}" Margin="5 0"/>
+                            <Button Name="NextButton" Command="{Binding NextCommand}" Content="Next" />
+                            <Button Name="MuteButton" Command="{Binding MuteCommand}" Content="Mute" Margin="5 0"/>
+                            <Slider Name="VolumeSlider" Minimum="0" Maximum="1" Width="150" Value="{Binding Volume, Mode=TwoWay}" IsMoveToPointEnabled="True"/>
+                        </StackPanel>
+                    </StackPanel>
                 </Grid>
             </DockPanel>
         </materialDesign:DrawerHost>
