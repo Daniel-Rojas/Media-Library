@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MusicDataTypes
+namespace MediaDataTypes
 {
     public class Song
     {
@@ -16,7 +16,7 @@ namespace MusicDataTypes
         public string FilePath { get; set; }
         public uint TrackNumber { get; set; }
 
-        public Song(string title, string artist, string filePath)
+        public Song(string filePath, string title, string artist)
         {
             Title = title;
             Artist = artist;

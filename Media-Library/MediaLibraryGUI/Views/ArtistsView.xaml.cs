@@ -18,7 +18,7 @@ namespace MediaLibraryGUI.Views
     /// <summary>
     /// Interaction logic for ArtistsView.xaml
     /// </summary>
-    public partial class ArtistsView : Page
+    public partial class ArtistsView : UserControl
     {
         public ArtistsView()
         {

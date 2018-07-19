@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataRetrieval;
-using MusicDataTypes;
+using MediaDataTypes.MusicDataTypes;
 
 namespace MediaInterfaces
 {
     public class MusicInterface
     {
-        public List<Song> totalSongList { get; set; }
-        public List<Album> totalAlbumList { get; set; }
-        public List<Artist> totalArtistList { get; set; }
+        public List<Song> TotalSongList { get; set; }
+        public List<Album> TotalAlbumList { get; set; }
+        public List<Artist> TotalArtistList { get; set; }
 
         public List<Song> ActiveSongList { get; set; }
         
@@ -22,44 +22,43 @@ namespace MediaInterfaces
         public MusicInterface()
         {
             jsonData = new JsonDataAccess();
-            importMusicData();
-            initializeData();
+            ImportMusicData();
+            InitializeData();
         }
 
         ~MusicInterface()
         {
-            exportMusicData();
+            ExportMusicData();
         }
 
-        private void exportMusicData()
+        private void ExportMusicData()
         {
-            jsonData.serializeSongData(totalSongList);
-            jsonData.serializedAlbumData(totalAlbumList);
-            jsonData.serializeArtistData(totalArtistList);
+            jsonData.SerializeSongData(TotalSongList);
+            jsonData.SerializedAlbumData(TotalAlbumList);
+            jsonData.SerializeArtistData(TotalArtistList);
         }
 
-        private void importMusicData()
+        private void ImportMusicData()
         {
-            totalSongList = jsonData.deserializeSongData();
-            totalAlbumList = jsonData.deserializeAlbumData();
-            totalArtistList = jsonData.deserializeArtistData();
+            TotalSongList = jsonData.DeserializeSongData();
+            TotalAlbumList = jsonData.DeserializeAlbumData();
+            TotalArtistList = jsonData.DeserializeArtistData();
         }
 
-        private void initializeData()
+        private void InitializeData()
         {
-            foreach (Artist artist in totalArtistList)
+            foreach (Artist artist in TotalArtistList)
             {
-                foreach (Album album in totalAlbumList)
+                foreach (Album album in TotalAlbumList)
                 {
                     if (album.Artist == artist.Name)
                     {
                         artist.AlbumList.Add(album);
-                        foreach (Song song in totalSongList)
+                        foreach (Song song in TotalSongList)
                         {
                             if (song.AlbumTitle == album.Title && song.Artist == album.Artist)
                             {
                                 album.SongList.Add(song);
-                                artist.SongList.Add(song);
                             }
                         }
                     }
@@ -67,7 +66,7 @@ namespace MediaInterfaces
             }
         }
 
-        public void addSong()
+        public void AddSong()
         {
 
             Console.Write("Enter Song Title: ");
@@ -91,19 +90,19 @@ namespace MediaInterfaces
 
         }
 
-        public void addSong(Song song)
+        public void AddSong(Song song)
         {
-            totalSongList.Add(song);
+            TotalSongList.Add(song);
         }
 
-        public void addAlbum(Album album)
+        public void AddAlbum(Album album)
         {
-            totalAlbumList.Add(album);
+            TotalAlbumList.Add(album);
         }
 
-        public void addArtist(Artist artist)
+        public void AddArtist(Artist artist)
         {
-            totalArtistList.Add(artist);
+            TotalArtistList.Add(artist);
         }
     }
 }

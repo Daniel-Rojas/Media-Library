@@ -46,3 +46,13 @@ H:\Github\Media-Library\Media-Library\MusicPlayerDemo\obj\Debug\MusicPlayerDemo.
 H:\Github\Media-Library\Media-Library\MusicPlayerDemo\obj\Debug\MusicPlayerDemo.csproj.CopyComplete
 H:\Github\Media-Library\Media-Library\MusicPlayerDemo\obj\Debug\MusicPlayerDemo.exe
 H:\Github\Media-Library\Media-Library\MusicPlayerDemo\obj\Debug\MusicPlayerDemo.pdb
+C:\Users\Daniel Rojas\Documents\GitHub\Media-Library\Media-Library\MusicPlayerDemo\obj\Debug\MusicPlayerDemo.csprojAssemblyReference.cache
+C:\Users\Daniel Rojas\Documents\GitHub\Media-Library\Media-Library\MusicPlayerDemo\obj\Debug\Views\AlbumPageView.g.cs
+C:\Users\Daniel Rojas\Documents\GitHub\Media-Library\Media-Library\MusicPlayerDemo\obj\Debug\MainWindow.g.cs
+C:\Users\Daniel Rojas\Documents\GitHub\Media-Library\Media-Library\MusicPlayerDemo\obj\Debug\Views\ArtistPageView.g.cs
+C:\Users\Daniel Rojas\Documents\GitHub\Media-Library\Media-Library\MusicPlayerDemo\obj\Debug\Views\MusicPageView.g.cs
+C:\Users\Daniel Rojas\Documents\GitHub\Media-Library\Media-Library\MusicPlayerDemo\obj\Debug\Views\SongPageView.g.cs
+C:\Users\Daniel Rojas\Documents\GitHub\Media-Library\Media-Library\MusicPlayerDemo\obj\Debug\App.g.cs
+C:\Users\Daniel Rojas\Documents\GitHub\Media-Library\Media-Library\MusicPlayerDemo\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Daniel Rojas\Documents\GitHub\Media-Library\Media-Library\MusicPlayerDemo\obj\Debug\MusicPlayerDemo_MarkupCompile.cache
+C:\Users\Daniel Rojas\Documents\GitHub\Media-Library\Media-Library\MusicPlayerDemo\obj\Debug\MusicPlayerDemo_MarkupCompile.lref

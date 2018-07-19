@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MusicDataTypes;
+using MediaDataTypes;
 using MediaInterfaces;
 
 namespace TestSerialization
@@ -78,7 +78,7 @@ namespace TestSerialization
 
         static public void displayAlbumList()
         {
-            foreach (Album album in music.totalAlbumList)
+            foreach (Album album in music.TotalAlbumList)
             {
                 album.Print();
                 Console.WriteLine();
@@ -89,7 +89,7 @@ namespace TestSerialization
 
         static public void displayArtistList()
         {
-            foreach (Artist artist in music.totalArtistList)
+            foreach (Artist artist in music.TotalArtistList)
             {
                 artist.Print();
                 Console.WriteLine();

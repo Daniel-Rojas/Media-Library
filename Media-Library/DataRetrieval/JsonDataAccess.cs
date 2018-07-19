@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using MusicDataTypes;
+using MediaDataTypes.MusicDataTypes;
 
 namespace DataRetrieval
 {
@@ -24,7 +24,7 @@ namespace DataRetrieval
             }
         }
 
-        public List<Song> deserializeSongData()
+        public List<Song> DeserializeSongData()
         {
             List<Song> songList = new List<Song>();
             if (File.Exists(songFilePath))
@@ -53,7 +53,7 @@ namespace DataRetrieval
             return songList;
         }
 
-        public List<Album> deserializeAlbumData()
+        public List<Album> DeserializeAlbumData()
         {
             List<Album> albumList = new List<Album>();
             if (File.Exists(albumFilePath))
@@ -82,7 +82,7 @@ namespace DataRetrieval
             return albumList;
         }
 
-        public List<Artist> deserializeArtistData()
+        public List<Artist> DeserializeArtistData()
         {
             List<Artist> artistList = new List<Artist>();
             using (FileStream fs = File.OpenRead(artistFilePath))
@@ -108,7 +108,7 @@ namespace DataRetrieval
             return artistList;
         }
 
-        public void serializeSongData(List<Song> songList)
+        public void SerializeSongData(List<Song> songList)
         {
             using (StreamWriter sw = new StreamWriter(songFilePath))
             {
@@ -120,7 +120,7 @@ namespace DataRetrieval
             }
         }
 
-        public void serializedAlbumData(List<Album> albumList)
+        public void SerializedAlbumData(List<Album> albumList)
         {
             using (StreamWriter sw = new StreamWriter(albumFilePath))
             {
@@ -132,7 +132,7 @@ namespace DataRetrieval
             }
         }
 
-        public void serializeArtistData(List<Artist> artistList)
+        public void SerializeArtistData(List<Artist> artistList)
         {
             using (StreamWriter sw = new StreamWriter(artistFilePath))
             {

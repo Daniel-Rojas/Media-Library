@@ -5,13 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using MediaInterfaces;
-using MusicDataTypes;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
 
 namespace MusicPlayerDemo
 {
+    /*
     public class DemoViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
@@ -69,235 +69,238 @@ namespace MusicPlayerDemo
 
 
         /********** Properties **********/
-        public MusicInterface Music
+    /*
+    public MusicInterface Music
+    {
+        get
         {
-            get
-            {
-                return _music;
-            }
+            return _music;
         }
+    }
 
-        public TimeSpan AudioPosition
+    public TimeSpan AudioPosition
+    {
+        get { return _audioPosition; }
+        set
         {
-            get { return _audioPosition; }
-            set
-            {
-                _audioPosition = value;
-                OnPropertyRaised("AudioPosition");
-            }
+            _audioPosition = value;
+            OnPropertyRaised("AudioPosition");
         }
+    }
 
-        public TimeSpan AudioDuration
+    public TimeSpan AudioDuration
+    {
+        get { return _audioDuration; }
+        set
         {
-            get { return _audioDuration; }
-            set
-            {
-                _audioDuration = value;
-                OnPropertyRaised("AudioDuration");
-            }
+            _audioDuration = value;
+            OnPropertyRaised("AudioDuration");
         }
+    }
 
-        public double SliderDuration
+    public double SliderDuration
+    {
+        get
         {
-            get
-            {
-                return _sliderDuration;
-            }
-            set
-            {
-                _sliderDuration = value;
-                OnPropertyRaised("SliderDuration");
-            }
+            return _sliderDuration;
         }
-
-        public double SliderPosition
+        set
         {
-            get
-            {
-                return _sliderPosition;
-            }
-            set
-            {
-                _sliderPosition = value;
-                OnPropertyRaised("SliderPosition");
-                _mediaPlayer.Position = TimeSpan.FromSeconds(value);
-            }
+            _sliderDuration = value;
+            OnPropertyRaised("SliderDuration");
         }
+    }
 
-        public Song CurrentSong
+    public double SliderPosition
+    {
+        get
         {
-            get
-            {
-                return _currentSong;
-            }
-            set
-            {
-                _currentSong = value;
-                OnPropertyRaised("CurrentSong");
-                _listIndex = _music.totalSongList.FindIndex(value.Equals);
-                _mediaPlayer.Open(new Uri(value.FilePath));
-                _mediaPlayer.Stop();
-                _mediaPlayer.Play();
-                _isPaused = false;
-                 
-            }
+            return _sliderPosition;
         }
-
-        public double Volume
+        set
         {
-            get
-            {
-                return _volume;
-            }
-            set
-            {
-                _volume = value;
-                OnPropertyRaised("Volume");
-                _mediaPlayer.Volume = value;
-            }
+            _sliderPosition = value;
+            OnPropertyRaised("SliderPosition");
+            _mediaPlayer.Position = TimeSpan.FromSeconds(value);
         }
+    }
 
-
-        /********** Event Functions **********/
-        private void OnAudioOpen(object sender, EventArgs e)
+    public Song CurrentSong
+    {
+        get
         {
-            SliderDuration = _mediaPlayer.NaturalDuration.TimeSpan.TotalSeconds;
-            SliderPosition = 0.0;
-            AudioDuration = _mediaPlayer.NaturalDuration.TimeSpan;
-            _timer.Start();
+            return _currentSong;
         }
-
-        private void OnAudioEnd(object sender, EventArgs e)
+        set
         {
+            _currentSong = value;
+            OnPropertyRaised("CurrentSong");
+            _listIndex = _music.totalSongList.FindIndex(value.Equals);
+            _mediaPlayer.Open(new Uri(value.FilePath));
             _mediaPlayer.Stop();
-            if (_listIndex < _music.totalSongList.Count - 1)
-            {
-                ++_listIndex;
-                CurrentSong = _music.totalSongList[_listIndex];
-            }
-            else
-            {
-                CurrentSong = _music.totalSongList[0];
-                _mediaPlayer.Pause();
-                _isPaused = true;
-                _mediaPlayer.Stop();
-            }
-            
-        }
-
-        private void OnTimerTick(object sender, EventArgs e)
-        {
-            if (_mediaPlayer.Source != null)
-            {
-                AudioPosition = _mediaPlayer.Position;
-                SliderPosition = _mediaPlayer.Position.TotalSeconds;
-            }
-        }
-
-        private void OnPlay(object obj)
-        {
             _mediaPlayer.Play();
             _isPaused = false;
-        }
 
-        private bool CanPlay(object obj)
+        }
+    }
+
+    public double Volume
+    {
+        get
         {
-            if (CurrentSong != null)
-            {
-                if (_isPaused)
-                {
-                    return true;
-                }
-            }
-            return false;
+            return _volume;
         }
-
-        private void OnPause(object obj)
+        set
         {
-            _mediaPlayer.Pause();
-            _isPaused = true;
+            _volume = value;
+            OnPropertyRaised("Volume");
+            _mediaPlayer.Volume = value;
         }
+    }
+    */
 
-        private bool CanPause(object obj)
-        {
-            if (_isPaused)
-            {
-                return false;
-            }
-            return true;
-        }
+    /********** Event Functions **********/
+    /*
+    private void OnAudioOpen(object sender, EventArgs e)
+    {
+        SliderDuration = _mediaPlayer.NaturalDuration.TimeSpan.TotalSeconds;
+        SliderPosition = 0.0;
+        AudioDuration = _mediaPlayer.NaturalDuration.TimeSpan;
+        _timer.Start();
+    }
 
-        private void OnMute(object obj)
-        {
-            if (_mediaPlayer.Volume != 0.0)
-            {
-                _volumeBeforeMute = _volume;
-                _mediaPlayer.Volume = 0.0;
-                Volume = 0.0;
-            }
-            else
-            {
-                _mediaPlayer.Volume = _volumeBeforeMute;
-                Volume = _volumeBeforeMute;
-            }
-        }
-
-        private bool CanMute(object obj)
-        {
-            return true;
-        }
-
-        private void OnNext(object obj)
+    private void OnAudioEnd(object sender, EventArgs e)
+    {
+        _mediaPlayer.Stop();
+        if (_listIndex < _music.totalSongList.Count - 1)
         {
             ++_listIndex;
             CurrentSong = _music.totalSongList[_listIndex];
         }
-
-        private bool CanNext(object obj)
+        else
         {
-            if (_listIndex == _music.totalSongList.Count - 1)
-            {
-                return false;
-            }
-            return true;
+            CurrentSong = _music.totalSongList[0];
+            _mediaPlayer.Pause();
+            _isPaused = true;
+            _mediaPlayer.Stop();
         }
 
-        private void OnPrev(object obj)
-        {
-            --_listIndex;
-            CurrentSong = _music.totalSongList[_listIndex];
-        }
-
-        private bool CanPrev(object obj)
-        {
-            if (_listIndex == 0)
-            {
-                return false;
-            }
-            return true;
-        }
-
-
-        private void OnPropertyRaised(string propertyname)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyname));
-            }
-        }
-
-        /********** Commands **********/
-        public ICommand PlayCommand { get; set; }
-
-        public ICommand PauseCommand { get; set; }
-        
-        public ICommand MuteCommand { get; set; }
-
-        public ICommand NextCommand { get; set; }
-
-        public ICommand PrevCommand { get; set; }
-
-
-        
     }
+
+    private void OnTimerTick(object sender, EventArgs e)
+    {
+        if (_mediaPlayer.Source != null)
+        {
+            AudioPosition = _mediaPlayer.Position;
+            SliderPosition = _mediaPlayer.Position.TotalSeconds;
+        }
+    }
+
+    private void OnPlay(object obj)
+    {
+        _mediaPlayer.Play();
+        _isPaused = false;
+    }
+
+    private bool CanPlay(object obj)
+    {
+        if (CurrentSong != null)
+        {
+            if (_isPaused)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void OnPause(object obj)
+    {
+        _mediaPlayer.Pause();
+        _isPaused = true;
+    }
+
+    private bool CanPause(object obj)
+    {
+        if (_isPaused)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    private void OnMute(object obj)
+    {
+        if (_mediaPlayer.Volume != 0.0)
+        {
+            _volumeBeforeMute = _volume;
+            _mediaPlayer.Volume = 0.0;
+            Volume = 0.0;
+        }
+        else
+        {
+            _mediaPlayer.Volume = _volumeBeforeMute;
+            Volume = _volumeBeforeMute;
+        }
+    }
+
+    private bool CanMute(object obj)
+    {
+        return true;
+    }
+
+    private void OnNext(object obj)
+    {
+        ++_listIndex;
+        CurrentSong = _music.totalSongList[_listIndex];
+    }
+
+    private bool CanNext(object obj)
+    {
+        if (_listIndex == _music.totalSongList.Count - 1)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    private void OnPrev(object obj)
+    {
+        --_listIndex;
+        CurrentSong = _music.totalSongList[_listIndex];
+    }
+
+    private bool CanPrev(object obj)
+    {
+        if (_listIndex == 0)
+        {
+            return false;
+        }
+        return true;
+    }
+
+
+    private void OnPropertyRaised(string propertyname)
+    {
+        if (PropertyChanged != null)
+        {
+            PropertyChanged(this, new PropertyChangedEventArgs(propertyname));
+        }
+    }
+    */
+    /********** Commands **********/
+    /*
+    public ICommand PlayCommand { get; set; }
+
+    public ICommand PauseCommand { get; set; }
+
+    public ICommand MuteCommand { get; set; }
+
+    public ICommand NextCommand { get; set; }
+
+    public ICommand PrevCommand { get; set; }
+
+
+
+}*/
 }

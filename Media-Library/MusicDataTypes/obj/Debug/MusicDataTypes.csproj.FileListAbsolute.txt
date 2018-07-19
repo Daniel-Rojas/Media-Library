@@ -1,0 +1,9 @@
+C:\Users\Daniel Rojas\Documents\GitHub\Media-Library\Media-Library\MusicDataTypes\bin\Debug\MusicDataTypes.dll
+C:\Users\Daniel Rojas\Documents\GitHub\Media-Library\Media-Library\MusicDataTypes\bin\Debug\MusicDataTypes.pdb
+C:\Users\Daniel Rojas\Documents\GitHub\Media-Library\Media-Library\MusicDataTypes\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Daniel Rojas\Documents\GitHub\Media-Library\Media-Library\MusicDataTypes\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Daniel Rojas\Documents\GitHub\Media-Library\Media-Library\MusicDataTypes\obj\Debug\MusicDataTypes.csprojAssemblyReference.cache
+C:\Users\Daniel Rojas\Documents\GitHub\Media-Library\Media-Library\MusicDataTypes\obj\Debug\MusicDataTypes.csproj.CoreCompileInputs.cache
+C:\Users\Daniel Rojas\Documents\GitHub\Media-Library\Media-Library\MusicDataTypes\obj\Debug\MusicDataTypes.csproj.CopyComplete
+C:\Users\Daniel Rojas\Documents\GitHub\Media-Library\Media-Library\MusicDataTypes\obj\Debug\MusicDataTypes.dll
+C:\Users\Daniel Rojas\Documents\GitHub\Media-Library\Media-Library\MusicDataTypes\obj\Debug\MusicDataTypes.pdb

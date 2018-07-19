@@ -14,22 +14,23 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
-using MusicDataTypes;
+using MediaDataTypes;
 using MediaInterfaces;
 
-namespace MusicPlayerDemo
+namespace MediaLibraryGUI
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+        /*
         private MediaPlayer mediaPlayer = new MediaPlayer();
         private bool suppresssaMediaPositionUpdate = false;
         private double volumeBeforeMute = 0.00;
         private Song currentSong;
         private DispatcherTimer timer;
-        private int currentIndex;
+        private int currentIndex;*/
 
         public MainWindow()
         {

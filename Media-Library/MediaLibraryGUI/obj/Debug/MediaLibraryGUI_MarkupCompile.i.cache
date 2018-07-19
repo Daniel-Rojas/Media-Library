@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Daniel Rojas\Documents\GitHub\Media-Library\Media-Library\MediaLibraryGUI\App.xaml
-11-1297583915
+51805546515
 
-22-746597022
-161114776886
-Views\ActorsView.xaml;Views\AlbumsView.xaml;Views\ArtistsView.xaml;Views\DirectorsView.xaml;Views\MainWindowView.xaml;Views\MoviesView.xaml;Views\NetworksView.xaml;Views\PlaylistsView.xaml;Views\SeriesView.xaml;Views\SongsView.xaml;Views\StudiosView.xaml;
+20768545049
+172046281059
+Views\AlbumsView.xaml;Views\ArtistsView.xaml;Views\MainWindowView.xaml;Views\MediaPlayerView.xaml;Views\SongsView.xaml;
 
-True
+False
 

@@ -1,4 +1,7 @@
-﻿using MediaInterfaces;
+﻿using MaterialDesignThemes.Wpf;
+using MediaDataTypes;
+using MediaInterfaces;
+using MediaLibraryGUI.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -6,73 +9,228 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
 
 namespace MediaLibraryGUI.ViewModels
 {
-    public class MainWindowViewModel : INotifyPropertyChanged
+    public class MainWindowViewModel : BaseViewModel
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
         // Main Menu 
+        private int _musicMenuSelectedIndex;
         private TextBlock _musicMenuSelector;
         private TextBlock _filmsMenuSelector;
         private TextBlock _tvShowsMenuSelector;
-        private string _frameView;
 
         //Media Interfaces
         private readonly MusicInterface _music;
         //private readonly MoviesInterface _movies; 
         //private readonly TVInterface _tvshows;
 
-        // Media Player
-        private readonly MediaPlayer _mediaPlayer;
-        private readonly DispatcherTimer _timer;
-        private TimeSpan _mediaPosition;
-        private TimeSpan _mediaDuration;
-        private double _sliderPosition;
-        private double _sliderDuration;
-        private bool _suppressMediaPositionUpdate;
-        private double _volume;
-        private double _volumeBeforeMute;
-        private bool _isMuted;
-        private bool _isPaused;
+        // Frame Content Properties
+        private UserControl _mainFrameContent;
+        private UserControl _mediaPlayerFrameContent;
+
+        // Views
+        private UserControl _songsView;
+        private UserControl _albumsView;
+        private UserControl _artistView;
+        private UserControl _mediaPlayerView;
+
+        // View Models
+        private SongsViewModel _songsVM;
+        private AlbumsViewModel _albumsVM;
+        private ArtistsViewModel _artistsVM;
+        private MediaPlayerViewModel _mediaPlayerVM;
+
+        public UserControl ArtistView
+        {
+            get { return _artistView; }
+            set
+            {
+                _artistView = value;
+                OnPropertyRaised("ArtistView");
+            }
+        }
+
+        public ArtistsViewModel ArtistsVM
+        {
+            get { return _artistsVM; }
+            set
+            {
+                _artistsVM = value;
+                OnPropertyRaised("ArtistVM");
+            }
+        }
+
+        public UserControl AlbumsView
+        {
+            get { return _albumsView; }
+            set
+            {
+                _albumsView = value;
+                OnPropertyRaised("AlbumsView");
+            }
+        }
+
+        public AlbumsViewModel AlbumsVM
+        {
+            get { return _albumsVM; }
+            set
+            {
+                _albumsVM = value;
+                OnPropertyRaised("AlbumsVM");
+            }
+        }
+
+        public UserControl SongsView
+        {
+            get { return _songsView; }
+            set
+            {
+                _songsView = value;
+                OnPropertyRaised("SongsView");
+            }
+        }
+
+        public SongsViewModel SongsVM
+        {
+            get { return _songsVM; }
+            set
+            {
+                _songsVM = value;
+                OnPropertyRaised("SongsVM");
+            }
+        }
 
 
 
         public MainWindowViewModel()
         {
-            //_music = new MusicInterface();
+            // Initalizes Media Interfaces
+            _music = new MusicInterface();
 
-            /***** Media Player *****/
-       
-            // Initializes Media Player
-            _mediaPlayer = new MediaPlayer();
-            _mediaPlayer.MediaOpened += OnMediaOpen;
-            _mediaPlayer.MediaEnded += OnMediaEnd;
-            _volume = 0.5;
+            // Initializes View
+            InitializeViews();
+            InitializeViewModels();
 
-            // Initializes Timer
-            _timer = new DispatcherTimer();
-            _timer.Interval = TimeSpan.FromSeconds(1);
-            _timer.Tick += OnTimerTick;
-            _suppressMediaPositionUpdate = false;
+            //MainFrameContent = _songsView;
+            //MainFrameContent = _albumsView;
+            MainFrameContent = _artistView;
 
+            _albumsVM.AlbumList = _music.TotalAlbumList;
+            _artistsVM.ArtistList = _music.TotalArtistList; 
+            //Test = new MediaPlayerViewModel();
+            MediaPlayerFrameContent = _mediaPlayerView;
+
+            _songsVM.SongList = _music.TotalSongList;
+            _mediaPlayerVM.CurrentMedia = _songsVM.CurrentSong;
+            _mediaPlayerVM.OnNextMedia = OnNextSong;
+            _mediaPlayerVM.OnPrevMedia = OnPrevSong;
+            _songsVM.OnCurrentSong = OnSelectedNewSong;
+        }
+
+        public void InitializeViews()
+        {
+            // Initializes Views
+            _songsView = new SongsView();
+            _albumsView = new AlbumsView();
+            _artistView = new ArtistsView();
+
+            // Initializes Media Player 
+            _mediaPlayerView = new MediaPlayerView();
+        }
+
+        public void InitializeViewModels()
+        {
+            SongsVM = (SongsViewModel)_songsView.DataContext;
+            AlbumsVM = (AlbumsViewModel)_albumsView.DataContext;
+            ArtistsVM = (ArtistsViewModel)_artistView.DataContext;
+
+            _mediaPlayerVM = (MediaPlayerViewModel)_mediaPlayerView.DataContext;
+
+            SongsVM.MainWindowVM = this;
+            AlbumsVM.MainWindowVM = this;
+            ArtistsVM.MainWindowVM = this;
+        }
+
+        private void OnNextSong(string message)
+        {
+            //if (_mediaPlayerVM.Repeat == -1)
+            //{
+            if (_songsVM.SelectedSong < _songsVM.SongList.Count - 1)
+            {
+                _songsVM.MoveNext();
+                _mediaPlayerVM.CurrentMedia = _songsVM.CurrentSong;
+                _mediaPlayerVM.PlayNewMedia();
+            }
+            else
+            {
+                _songsVM.MoveNext();
+                _mediaPlayerVM.CurrentMedia = _songsVM.CurrentSong;
+                _mediaPlayerVM.StopMedia();
+            }
+            //)
+            //else if (_mediaPlayerVM.Repeat == 0)
+            //{
+            /*
+                    _songsVM.MoveNext();
+                    _mediaPlayerVM.CurrentMedia = _songsVM.CurrentSong;
+                    _mediaPlayerVM.PlayNewMedia();
+            */
+            //}
+        }
+
+        private void OnPrevSong(string message)
+        {
+            //if (_mediaPlayerVM.Repeat == -1) 
+            if (_songsVM.SelectedSong > 0)
+            {
+                _songsVM.MovePrev();
+                _mediaPlayerVM.CurrentMedia = _songsVM.CurrentSong;
+                _mediaPlayerVM.PlayNewMedia();
+            }
+            else
+            {
+                _mediaPlayerVM.StopMedia();
+            }
+        }
+
+        private void OnSelectedNewSong(string message)
+        {
+            _mediaPlayerVM.CurrentMedia = _songsVM.CurrentSong;
+            _mediaPlayerVM.PlayNewMedia();
         }
 
         /********** Main Menu Function **********/
-
-        public string FrameView
+        public UserControl MainFrameContent
         {
-            get
-            {
-                return _frameView;
-            }
+            get { return _mainFrameContent; }
             set
             {
-                _frameView = value;
-                OnPropertyRaised("FrameView");
+                _mainFrameContent = value;
+                OnPropertyRaised("MainFrameContent");
+            }
+        }
+
+        public UserControl MediaPlayerFrameContent
+        {
+            get { return _mediaPlayerFrameContent; }
+            set
+            {
+                _mediaPlayerFrameContent = value;
+                OnPropertyRaised("MediaPlayerFrameContent");
+            }
+        }
+
+        public int MusicMenuSelectedIndex
+        {
+            get { return _musicMenuSelectedIndex; }
+            set
+            {
+                _musicMenuSelectedIndex = value;
+                OnPropertyRaised("MusicMenuSelectedIndex");
             }
         }
 
@@ -90,6 +248,7 @@ namespace MediaLibraryGUI.ViewModels
                 {
                     if (!String.IsNullOrEmpty(value.Text))
                     {
+                        MusicMenuSelectedIndex = -1;
                         OpenPage(value.Text);
                     }
                 }
@@ -139,27 +298,29 @@ namespace MediaLibraryGUI.ViewModels
         private void OpenPage(string page)
         {
             // Music Menu Options
-            if (page ==  "Songs")
+            /*if (page ==  "Songs")
             {
-                FrameView = @"..\Views\SongsView.xaml";
+                //MainFrameContent = _songsView;
                 FilmsMenuSelector = null;
                 TvShowsMenuSelector = null;
             }
             else if (page == "Albums")
             {
-                FrameView = @"..\Views\AlbumsView.xaml";
+                //MainFrameContent = _albumsView;
                 FilmsMenuSelector = null;
                 TvShowsMenuSelector = null;
-            }
-            else if (page == "Artists")
+            }*/
+            if (page == "Artists")
             {
-                FrameView = @"..\Views\ArtistsView.xaml";
+
+                MainFrameContent = ArtistView;
+                MusicMenuSelectedIndex = -1;
                 FilmsMenuSelector = null;
                 TvShowsMenuSelector = null;
             }
             else if (page == "Playlists")
             {
-                FrameView = @"..\Views\PlaylistsView.xaml";
+                //FrameView = @"..\Views\PlaylistsView.xaml";
                 FilmsMenuSelector = null;
                 TvShowsMenuSelector = null;
             }
@@ -167,25 +328,25 @@ namespace MediaLibraryGUI.ViewModels
             // Films Menu Options
             else if (page == "Movies")
             {
-                FrameView = @"..\Views\MoviesView.xaml";
+                //FrameView = @"..\Views\MoviesView.xaml";
                 MusicMenuSelector = null;
                 TvShowsMenuSelector = null;
             }
             else if (page == "Actors")
             {
-                FrameView = @"..\ViewsActorsView.xaml";
+                //FrameView = @"..\ViewsActorsView.xaml";
                 MusicMenuSelector = null;
                 TvShowsMenuSelector = null;
             }
             else if (page == "Directors")
             {
-                FrameView = @"..\Views\DirectorsView.xaml";
+                //FrameView = @"..\Views\DirectorsView.xaml";
                 MusicMenuSelector = null;
                 TvShowsMenuSelector = null;
             }
             else if (page == "Studios")
             {
-                FrameView = @"..\Views\StudiosView.xaml";
+                //FrameView = @"..\Views\StudiosView.xaml";
                 MusicMenuSelector = null;
                 TvShowsMenuSelector = null; 
             }
@@ -193,13 +354,13 @@ namespace MediaLibraryGUI.ViewModels
             // TV Shows Menu Options
             else if (page == "Series")
             {
-                FrameView = @"..\Views\SeriesView.xaml";
+                //FrameView = @"..\Views\SeriesView.xaml";
                 MusicMenuSelector = null;
                 FilmsMenuSelector = null;
             }
             else if (page == "Networks")
             {
-                FrameView = @"..\Views\NetworksView.xaml";
+                //FrameView = @"..\Views\NetworksView.xaml";
                 MusicMenuSelector = null;
                 FilmsMenuSelector = null;
             }
@@ -212,98 +373,11 @@ namespace MediaLibraryGUI.ViewModels
             get { return _music; }
         }
 
-        public TimeSpan MediaPosition
-        {
-            get { return _mediaPosition; }
-            set
-            {
-                _mediaPosition = value;
-                OnPropertyRaised("MediaPosition");
-            }
-        }
-
-        public TimeSpan MediaDuration
-        {
-            get { return _mediaDuration; }
-            set
-            {
-                _mediaDuration = value;
-                OnPropertyRaised("MediaDuration");
-            }
-        }
-
-        public double SliderDuration
-        {
-            get { return _sliderDuration; }
-            set
-            {
-                _sliderDuration = value;
-                OnPropertyRaised("SliderDuration");
-            }
-        }
-
-        public double SliderPosition
-        {
-            get { return _sliderPosition; }
-            set
-            {
-                _sliderPosition = value;
-                OnPropertyRaised("SliderPosition");
-                if (_suppressMediaPositionUpdate)
-                {
-                    _suppressMediaPositionUpdate = false;
-                }
-                else
-                {
-                    _mediaPlayer.Position = TimeSpan.FromSeconds(value);
-                }
-            }
-        }
-
-        public double Volume
-        {
-            get { return _volume; }
-            set
-            {
-                _volume = value;
-                OnPropertyRaised("Volume");
-                _mediaPlayer.Volume = value;
-            }
-        }
 
 
-        private void OnMediaOpen(object sender, EventArgs e)
-        {
-            SliderDuration = _mediaPlayer.NaturalDuration.TimeSpan.TotalSeconds;
-            SliderPosition = 0.0;
-            MediaDuration = _mediaPlayer.NaturalDuration.TimeSpan;
-            _timer.Start();
-        }
 
-        private void OnMediaEnd(object sender, EventArgs e)
-        {
-            _mediaPlayer.Stop();
 
-        }
 
-        private void OnTimerTick(object sender, EventArgs e)
-        {
-            
-            if (_mediaPlayer.Source != null)
-            {
-                MediaPosition = _mediaPlayer.Position;
-                _suppressMediaPositionUpdate = true;
-                SliderPosition = _mediaPlayer.Position.TotalSeconds;
-            }
-        }
-
-        private void OnPropertyRaised(string propertyname)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyname));
-            }
-        }
 
     }
 }

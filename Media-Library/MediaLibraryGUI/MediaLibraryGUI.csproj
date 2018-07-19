@@ -60,50 +60,28 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModels\AlbumsViewModel.cs" />
+    <Compile Include="ViewModels\ArtistsViewModel.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\MediaPlayerViewModel.cs" />
     <Compile Include="ViewModels\SongsViewModel.cs" />
-    <Compile Include="Views\ActorsView.xaml.cs">
-      <DependentUpon>ActorsView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\AlbumsView.xaml.cs">
       <DependentUpon>AlbumsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ArtistsView.xaml.cs">
       <DependentUpon>ArtistsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\DirectorsView.xaml.cs">
-      <DependentUpon>DirectorsView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\MoviesView.xaml.cs">
-      <DependentUpon>MoviesView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\NetworksView.xaml.cs">
-      <DependentUpon>NetworksView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\PlaylistsView.xaml.cs">
-      <DependentUpon>PlaylistsView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\SeriesView.xaml.cs">
-      <DependentUpon>SeriesView.xaml</DependentUpon>
+    <Compile Include="Views\MediaPlayerView.xaml.cs">
+      <DependentUpon>MediaPlayerView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SongsView.xaml.cs">
       <DependentUpon>SongsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\StudiosView.xaml.cs">
-      <DependentUpon>StudiosView.xaml</DependentUpon>
-    </Compile>
-    <Page Include="Views\ActorsView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\AlbumsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ArtistsView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\DirectorsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -121,27 +99,11 @@
       <DependentUpon>MainWindowView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\MoviesView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\NetworksView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\PlaylistsView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\SeriesView.xaml">
+    <Page Include="Views\MediaPlayerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SongsView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\StudiosView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -174,6 +136,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MediaDataTypes\MediaDataTypes.csproj">
+      <Project>{AAB5FD45-24C7-444B-8CF4-104F03AD989D}</Project>
+      <Name>MediaDataTypes</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MediaInterfaces\MediaInterfaces.csproj">
       <Project>{2182E29E-A090-46DC-B12F-CF5306C132C6}</Project>
       <Name>MediaInterfaces</Name>

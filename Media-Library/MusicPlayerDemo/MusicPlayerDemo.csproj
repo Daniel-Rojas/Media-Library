@@ -157,10 +157,6 @@
       <Project>{2182E29E-A090-46DC-B12F-CF5306C132C6}</Project>
       <Name>MediaInterfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MusicDataTypes\MusicDataTypes.csproj">
-      <Project>{B1D4D6B7-5ED5-47DB-92E2-98680A5F06FB}</Project>
-      <Name>MusicDataTypes</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

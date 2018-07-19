@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace MusicPlayerDemo
+namespace MediaLibraryGUI
 {
     public class RelayCommand : ICommand
     {
