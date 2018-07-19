@@ -20,14 +20,3 @@ H:\Github\Media-Library\Media-Library\DataRetrieval\obj\Debug\DataRetrieval.cspr
 H:\Github\Media-Library\Media-Library\DataRetrieval\obj\Debug\DataRetrieval.csproj.CopyComplete
 H:\Github\Media-Library\Media-Library\DataRetrieval\obj\Debug\DataRetrieval.dll
 H:\Github\Media-Library\Media-Library\DataRetrieval\obj\Debug\DataRetrieval.pdb
-C:\Users\Daniel Rojas\Documents\GitHub\Media-Library\Media-Library\DataRetrieval\bin\Debug\DataRetrieval.dll
-C:\Users\Daniel Rojas\Documents\GitHub\Media-Library\Media-Library\DataRetrieval\bin\Debug\DataRetrieval.pdb
-C:\Users\Daniel Rojas\Documents\GitHub\Media-Library\Media-Library\DataRetrieval\bin\Debug\MediaDataTypes.dll
-C:\Users\Daniel Rojas\Documents\GitHub\Media-Library\Media-Library\DataRetrieval\bin\Debug\Newtonsoft.Json.dll
-C:\Users\Daniel Rojas\Documents\GitHub\Media-Library\Media-Library\DataRetrieval\bin\Debug\MediaDataTypes.pdb
-C:\Users\Daniel Rojas\Documents\GitHub\Media-Library\Media-Library\DataRetrieval\bin\Debug\Newtonsoft.Json.xml
-C:\Users\Daniel Rojas\Documents\GitHub\Media-Library\Media-Library\DataRetrieval\obj\Debug\DataRetrieval.csprojAssemblyReference.cache
-C:\Users\Daniel Rojas\Documents\GitHub\Media-Library\Media-Library\DataRetrieval\obj\Debug\DataRetrieval.csproj.CoreCompileInputs.cache
-C:\Users\Daniel Rojas\Documents\GitHub\Media-Library\Media-Library\DataRetrieval\obj\Debug\DataRetrieval.csproj.CopyComplete
-C:\Users\Daniel Rojas\Documents\GitHub\Media-Library\Media-Library\DataRetrieval\obj\Debug\DataRetrieval.dll
-C:\Users\Daniel Rojas\Documents\GitHub\Media-Library\Media-Library\DataRetrieval\obj\Debug\DataRetrieval.pdb

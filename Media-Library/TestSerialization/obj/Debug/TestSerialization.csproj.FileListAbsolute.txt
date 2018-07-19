@@ -14,5 +14,3 @@ H:\Personal Projects\Github\Media-Library-Basics\MusicAccess\TestSerialization\b
 H:\Personal Projects\Github\Media-Library-Basics\MusicAccess\TestSerialization\obj\Debug\TestSerialization.csproj.CopyComplete
 H:\Personal Projects\Github\Media-Library-Basics\MusicAccess\TestSerialization\obj\Debug\TestSerialization.exe
 H:\Personal Projects\Github\Media-Library-Basics\MusicAccess\TestSerialization\obj\Debug\TestSerialization.pdb
-C:\Users\Daniel Rojas\Documents\GitHub\Media-Library\Media-Library\TestSerialization\obj\Debug\TestSerialization.csprojAssemblyReference.cache
-C:\Users\Daniel Rojas\Documents\GitHub\Media-Library\Media-Library\TestSerialization\obj\Debug\TestSerialization.csproj.CoreCompileInputs.cache

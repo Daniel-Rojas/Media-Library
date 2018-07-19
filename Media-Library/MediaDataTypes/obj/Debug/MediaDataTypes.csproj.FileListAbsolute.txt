@@ -1,9 +1,0 @@
-C:\Users\Daniel Rojas\Documents\GitHub\Media-Library\Media-Library\MediaDataTypes\bin\Debug\MediaDataTypes.dll
-C:\Users\Daniel Rojas\Documents\GitHub\Media-Library\Media-Library\MediaDataTypes\bin\Debug\MediaDataTypes.pdb
-C:\Users\Daniel Rojas\Documents\GitHub\Media-Library\Media-Library\MediaDataTypes\bin\Debug\Newtonsoft.Json.dll
-C:\Users\Daniel Rojas\Documents\GitHub\Media-Library\Media-Library\MediaDataTypes\bin\Debug\Newtonsoft.Json.xml
-C:\Users\Daniel Rojas\Documents\GitHub\Media-Library\Media-Library\MediaDataTypes\obj\Debug\MediaDataTypes.csproj.CoreCompileInputs.cache
-C:\Users\Daniel Rojas\Documents\GitHub\Media-Library\Media-Library\MediaDataTypes\obj\Debug\MediaDataTypes.csproj.CopyComplete
-C:\Users\Daniel Rojas\Documents\GitHub\Media-Library\Media-Library\MediaDataTypes\obj\Debug\MediaDataTypes.dll
-C:\Users\Daniel Rojas\Documents\GitHub\Media-Library\Media-Library\MediaDataTypes\obj\Debug\MediaDataTypes.pdb
-C:\Users\Daniel Rojas\Documents\GitHub\Media-Library\Media-Library\MediaDataTypes\obj\Debug\MediaDataTypes.csprojAssemblyReference.cache
