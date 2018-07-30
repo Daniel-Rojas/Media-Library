@@ -1,0 +1,164 @@
+﻿<UserControl x:Class="MediaLibraryGUI.Views.AddMusicView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MediaLibraryGUI.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             xmlns:viewModels="clr-namespace:MediaLibraryGUI.ViewModels"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             Background="{DynamicResource MaterialDesignPaper}"
+             TextElement.FontWeight="Light"
+             TextElement.FontSize="14"
+             FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto">
+    <UserControl.DataContext>
+        <viewModels:AddMusicViewModel />
+    </UserControl.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="5*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Border BorderThickness="1" Grid.Column="1" Grid.Row="1" CornerRadius="20" BorderBrush="Black" Background="{DynamicResource PrimaryHueDarkBrush}">
+            <StackPanel Margin="30 30" Orientation="Vertical">
+                <Label Content="Album To Be Added" FontSize="15" HorizontalAlignment="Center"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label  Content="Artist Information" Grid.Column="0" />
+                    <CheckBox Name="NewArtistCheckBox" Content="New Artist" Grid.Column="1"/>
+                </Grid>
+                <Separator Height="2" Background="{DynamicResource SecondaryAccentBrush}" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBox Name="ArtistName"
+                                 Grid.Column="0"
+                                 HorizontalAlignment="Left"
+                                 materialDesign:HintAssist.Hint="Artist Name"
+                                 Width="400"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <TextBox Name="ArtistPhotoPath"
+                             Grid.Column="1"
+                             HorizontalAlignment="Left"
+                             materialDesign:HintAssist.Hint="Artist Photo Filepath"
+                             Width="400"
+                             IsEnabled="{Binding ElementName=NewArtistCheckBox, Path=IsChecked}"
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                </Grid>
+                <TextBox Name="ArtistDescription"
+                         Margin="0,10,0,0"
+                         HorizontalAlignment="Left"
+                         Width="825"
+                         Height="50"
+                         TextWrapping="Wrap"
+                         VerticalScrollBarVisibility="Auto"
+                         IsEnabled="{Binding ElementName=NewArtistCheckBox, Path=IsChecked}"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                         materialDesign:HintAssist.Hint="Artist Description"/>
+                <Label Content="Album Information" 
+                       Margin="0 10 0 0"/>
+                <Separator Height="2"
+                           Background="{DynamicResource SecondaryAccentBrush}" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Name="AlbumTitle"
+                             Grid.Column="0"
+                             HorizontalAlignment="Left"
+                             materialDesign:HintAssist.Hint="Album Title"
+                             Width="400"
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    <TextBox Name="AlbumArtist"
+                             Grid.Column="1"
+                             HorizontalAlignment="Left"
+                             materialDesign:HintAssist.Hint="Album Artist"
+                             Width="400"
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Name="AlbumYear"
+                             Grid.Column="0"
+                             HorizontalAlignment="Left"
+                             materialDesign:HintAssist.Hint="Release Year"
+                             Width="120"
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <TextBox Name="AlbumNumberOfTracks"
+                             Grid.Column="1"
+                             HorizontalAlignment="Left"
+                             materialDesign:HintAssist.Hint="Number Of Tracks"
+                             Width="120"
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    <StackPanel Grid.Column="2"
+                                Grid.ColumnSpan="2"
+                                Orientation="Horizontal">
+                        <TextBox Name="AlbumFilePath"
+                                 Text="{Binding AlbumFilePath}"
+                             HorizontalAlignment="Left"
+                             materialDesign:HintAssist.Hint="Album File Path"
+                             Width="380"
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                        <Button Name="SelectAlbumFolder"
+                                Command="{Binding SelectAlbumFolder}"
+                                Style="{StaticResource MaterialDesignFlatButton}"
+                                Height="20"
+                                Width="20"
+                                Margin="0"
+                                Padding="0"
+                                VerticalAlignment="Bottom"
+                                materialDesign:RippleAssist.IsDisabled="True">
+                            <materialDesign:PackIcon Kind="Folder" Margin="0" Padding="0"/>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+                <Label Content="Song Information" 
+                       Margin="0 10 0 0"/>
+                <Separator Height="2"
+                           Background="{DynamicResource SecondaryAccentBrush}" />
+                <ItemsControl ItemsSource="{Binding AlbumFiles}" >
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+
+                                <ListBox Name="SongTitle" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0"/>
+                                <ListBox />
+
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

@@ -32,40 +32,42 @@
                     <StackPanel Orientation="Vertical">
                         <TextBlock FontSize="30" HorizontalAlignment="Center" Text="MENU"/>
                         <TextBlock FontSize="20" HorizontalAlignment="Left" Margin="5 30 5 0" Text="Music"/>
-                        <ListBox HorizontalContentAlignment="Left" SelectedIndex="{Binding MusicMenuSelectedIndex, Mode=TwoWay}" SelectedItem="{Binding MusicMenuSelector, Mode=TwoWay}">
-                            <!--<TextBlock FontSize="20" Margin="40 0 0 0" Text="Songs"/>
-                            <TextBlock FontSize="20" Margin="40 0 0 0" Text="Albums"/>-->
-                            <TextBlock FontSize="20" Margin="40 0 0 0" Text="Artists"/>
-                            <TextBlock FontSize="20" Margin="40 0 0 0" Text="Playlists"/>
+                        <ListBox HorizontalContentAlignment="Left" SelectedIndex="{Binding MusicMenuSelected}">
+                            <TextBlock FontSize="20" Margin="40 0 0 0" Text="Artists" />
+                            <TextBlock FontSize="20" Margin="40 0 0 0" Text="Playlists" />
+                            <TextBlock FontSize="20" Margin="40 0 0 0" Text="Add Music" />
                         </ListBox>
-                        <TextBlock FontSize="20" Margin="5 0 5 0" Text="Films"/>
-                        <ListBox HorizontalContentAlignment="Left" SelectedItem="{Binding FilmsMenuSelector, Mode=TwoWay}">
-                            <TextBlock FontSize="20" Margin="40 0 0 0" Text="Movies"/>
-                            <TextBlock FontSize="20" Margin="40 0 0 0" Text="Actors"/>
-                            <TextBlock FontSize="20" Margin="40 0 0 0" Text="Directors"/>
-                            <TextBlock FontSize="20" Margin="40 0 0 0" Text="Studios"/>
+                        <TextBlock FontSize="20" HorizontalAlignment="Left" Margin="5 0 5 0" Text="Film" />
+                        <ListBox HorizontalContentAlignment="Left" SelectedIndex="{Binding FilmMenuSelected}">
+                            <TextBlock FontSize="20" Margin="40 0 0 0" Text="Movies" />
+                            <TextBlock FontSize="20" Margin="40 0 0 0" Text="Directors" />
+                            <TextBlock FontSize="20" Margin="40 0 0 0" Text="Studios" />
+                            <TextBlock FontSize="20" Margin="40 0 0 0" Text="Add Movie" />
                         </ListBox>
-                        <TextBlock FontSize="20" Margin="5 0 5 0" Text="TV Shows"/>
-                        <ListBox HorizontalContentAlignment="Left" SelectedItem="{Binding TvShowsMenuSelector, Mode=TwoWay}">
-                            <TextBlock FontSize="20" Margin="40 0 0 0" Text="Series"/>
-                            <TextBlock FontSize="20" Margin="40 0 0 0" Text="Networks"/>
+                        <ListBox HorizontalAlignment="Left" SelectedIndex="{Binding TVMenuSelected}">
+                            <TextBlock FontSize="20" Margin="40 0 0 0" Text="Series" />
+                            <TextBlock FontSize="20" Margin="40 0 0 0" Text="Networks" />
+                            <TextBlock FontSize="20" Margin="40 0 0 0" Text="Add Series" />
                         </ListBox>
                     </StackPanel>
                 </DockPanel>
             </materialDesign:DrawerHost.LeftDrawerContent>
             <DockPanel>
-                <materialDesign:ColorZone  Padding="16" Mode="PrimaryMid" DockPanel.Dock="Top">
+                <materialDesign:ColorZone Padding="10" Mode="PrimaryDark" DockPanel.Dock="Top" >
                     <DockPanel>
                         <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" IsChecked="False" x:Name="MenuToggleButton" />
-                        <materialDesign:PopupBox DockPanel.Dock="Right" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False">
-                            <StackPanel>
-                                <Button Content="Hello World" />
-                                <Button Content="Nice Popup" />
-                                <Button Content="Can't Touch This" IsEnabled="False" />
-                                <Separator/>
-                                <Button Content="Goodbye" />
-                            </StackPanel>
-                        </materialDesign:PopupBox>
+                        <Button Name="AddMedia"
+                                Command="{Binding AddMediaCommand}"
+                                DockPanel.Dock="Right"
+                                Style="{StaticResource MaterialDesignFlatButton}"
+                                materialDesign:ShadowAssist.ShadowEdges="None"
+                                VerticalContentAlignment="Center">
+                            <materialDesign:PackIcon Kind="Plus" 
+                                                     Foreground="{DynamicResource PrimaryHueLightBrush}" 
+                                                     Height="30" 
+                                                     Width="30" 
+                                                     VerticalAlignment="Center"/>
+                        </Button>
                         <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40">Media Library</TextBlock>
                     </DockPanel>
                 </materialDesign:ColorZone>
@@ -86,7 +88,7 @@
                                   Grid.ColumnSpan="3"
                                   VerticalScrollBarVisibility="Visible"
                                   HorizontalScrollBarVisibility="Visible"
-                                  MaxWidth="1920">
+                                  >
                         <ContentControl Content="{Binding MainFrameContent}" Name="MediaList"/>
                     </ScrollViewer>
 

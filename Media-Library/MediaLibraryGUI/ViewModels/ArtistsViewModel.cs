@@ -49,6 +49,8 @@ namespace MediaLibraryGUI.ViewModels
                     albumsVM.AlbumList = artist.AlbumList;
                     albumsVM.CurrentArtist = artist;
                     MainWindowVM.MainFrameContent = albumsView;
+                    albumsVM.SelectedAlbum = -1;
+                    MainWindowVM.MusicMenuSelected = -1;
                 }
             }
         }

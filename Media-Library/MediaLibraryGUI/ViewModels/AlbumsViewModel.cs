@@ -16,11 +16,9 @@ namespace MediaLibraryGUI.ViewModels
         private int _selectedAlbum;
         private MainWindowViewModel _mainWindowVM;
 
-
         public AlbumsViewModel()
         {
             _albumList = new List<Album>();
-
             BackCommand = new RelayCommand(OnBack, CanBack);
         }
 
@@ -60,6 +58,7 @@ namespace MediaLibraryGUI.ViewModels
                     songsVM.SongList = album.SongList;
                     songsVM.CurrentAlbum = album;
                     MainWindowVM.MainFrameContent = MainWindowVM.SongsView;
+                    //songsVM.SongSearch((Song)MainWindowVM.MediaPlayerVM.CurrentMedia);
                 }
             }
         }

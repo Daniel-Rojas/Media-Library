@@ -15,13 +15,17 @@ namespace MediaLibraryGUI.ViewModels
     {
         private Album _currentAlbum;
         private List<Song> _songList;
-        private int _selectedSong;
+        private int _selectedSongIndex;
+        private Song _selectedSongItem;
+
+        private bool _suppressSelect;
+
         private MainWindowViewModel _mainWindowVM;
-        private Song _currentSong;
 
         public SongsViewModel()
         {
             _songList = new List<Song>();
+            _suppressSelect = false;
             BackCommand = new RelayCommand(OnBack, CanBack);
         }
 
@@ -42,19 +46,56 @@ namespace MediaLibraryGUI.ViewModels
             {
                 _songList = value;
                 OnPropertyRaised("SongList");
+                if (MainWindowVM.MediaPlayerVM.CurrentMedia != null)
+                {
+                    SongSearch((Song)MainWindowVM.MediaPlayerVM.CurrentMedia);
+                }
+                
             }
         }
 
-        public int SelectedSong
+        public int SelectedSongIndex
         {
-            get { return _selectedSong; }
+            get { return _selectedSongIndex; }
             set
             {
-                _selectedSong = value;
-                OnPropertyRaised("SelectedSong");
-                if (value > -1)
+                if (!_suppressSelect)
                 {
-                    CurrentSong = SongList[value];
+                    _selectedSongIndex = value;
+                    OnPropertyRaised("SelectedSong");
+                    if (value > -1)
+                    {
+                        if (MainWindowVM.MediaPlayerVM.ActiveMediaList != SongList.Cast<Media>().ToList())
+                        {
+                            MainWindowVM.MediaPlayerVM.ActiveMediaList = SongList.Cast<Media>().ToList();
+                        }
+                        MainWindowVM.MediaPlayerVM.CurrentMedia = MainWindowVM.MediaPlayerVM.ActiveMediaList[value];
+                        MainWindowVM.MediaPlayerVM.ActiveListIndex = value;
+                        MainWindowVM.MediaPlayerVM.PlayNewMedia();
+                    }
+                }
+            }
+        }
+
+        public Song SelectedSongItem
+        {
+            get { return _selectedSongItem; }
+            set
+            {
+                _selectedSongItem = value;
+                OnPropertyRaised("SelectedSongItem");
+            }
+        }
+
+        public void SongSearch(Song songToFind)
+        {
+            for (int i = 0; i < SongList.Count; ++i)
+            {
+                Song song = SongList[i];
+                if (songToFind.Equals(song))
+                {
+                    _suppressSelect = true;
+                    SelectedSongItem = song;
                 }
             }
         }
@@ -69,49 +110,6 @@ namespace MediaLibraryGUI.ViewModels
             }
         }
 
-
-        public Song CurrentSong
-        {
-            get
-            {
-                return _currentSong;
-            }
-            set
-            {
-                _currentSong = value;
-                OnPropertyRaised("CurrentSong");
-                if (OnCurrentSong != null)
-                {
-                    OnCurrentSong("message");
-                }
-            }
-        }
-
-        public Action<string> OnCurrentSong { get; set; }
-
-        public void MoveNext()
-        {
-            if (SelectedSong < SongList.Count - 1)
-            {
-                ++SelectedSong;
-            }
-            else
-            {
-                SelectedSong = 0;
-            }
-        }
-
-        public void MovePrev()
-        {
-            if (SelectedSong > 0)
-            {
-                --SelectedSong;
-            }
-            else
-            {
-                SelectedSong = SongList.Count - 1;
-            }
-        }
 
         private void OnBack(object obj)
         {

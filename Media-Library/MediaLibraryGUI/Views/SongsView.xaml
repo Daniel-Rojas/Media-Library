@@ -47,7 +47,8 @@
         
         <ListView Grid.Row="1" 
                   ItemsSource="{Binding SongList}"
-                  SelectedIndex="{Binding SelectedSong, Mode=TwoWay}">
+                  SelectedIndex="{Binding SelectedSongIndex, Mode=OneWayToSource}"
+                  SelectedItem="{Binding SelectedSongItem, Mode=OneWay}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Title}" Width="Auto"/>
