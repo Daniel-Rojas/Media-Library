@@ -34,20 +34,18 @@
                         <TextBlock FontSize="20" HorizontalAlignment="Left" Margin="5 30 5 0" Text="Music"/>
                         <ListBox HorizontalContentAlignment="Left" SelectedIndex="{Binding MusicMenuSelected}">
                             <TextBlock FontSize="20" Margin="40 0 0 0" Text="Artists" />
-                            <TextBlock FontSize="20" Margin="40 0 0 0" Text="Playlists" />
-                            <TextBlock FontSize="20" Margin="40 0 0 0" Text="Add Music" />
+                            <TextBlock FontSize="20" Margin="40 0 0 0" Text="Music Playlists" />
                         </ListBox>
                         <TextBlock FontSize="20" HorizontalAlignment="Left" Margin="5 0 5 0" Text="Film" />
                         <ListBox HorizontalContentAlignment="Left" SelectedIndex="{Binding FilmMenuSelected}">
                             <TextBlock FontSize="20" Margin="40 0 0 0" Text="Movies" />
                             <TextBlock FontSize="20" Margin="40 0 0 0" Text="Directors" />
                             <TextBlock FontSize="20" Margin="40 0 0 0" Text="Studios" />
-                            <TextBlock FontSize="20" Margin="40 0 0 0" Text="Add Movie" />
                         </ListBox>
+                        <TextBlock FontSize="20" HorizontalAlignment="Left" Margin="5 0 5 0" Text="Television"/>
                         <ListBox HorizontalAlignment="Left" SelectedIndex="{Binding TVMenuSelected}">
                             <TextBlock FontSize="20" Margin="40 0 0 0" Text="Series" />
-                            <TextBlock FontSize="20" Margin="40 0 0 0" Text="Networks" />
-                            <TextBlock FontSize="20" Margin="40 0 0 0" Text="Add Series" />
+                            <TextBlock FontSize="20" Margin="40 0 0 0" Text="TV Networks" />
                         </ListBox>
                     </StackPanel>
                 </DockPanel>

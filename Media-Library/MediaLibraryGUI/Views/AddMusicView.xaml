@@ -27,25 +27,26 @@
             <RowDefinition Height="5*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        
-        <materialDesign:Flipper Grid.Column="1" Grid.Row="1" Style="{StaticResource MaterialDesignCardFlipper}" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="20" >
-            <materialDesign:Flipper.FrontContent>
-                <Border BorderThickness="1" Background="{DynamicResource PrimaryHueDarkBrush}" >
-                    <StackPanel Margin="10 10" Orientation="Vertical" HorizontalAlignment="Stretch">
-                        <Label Content="Album To Be Added" FontSize="20" HorizontalAlignment="Center" HorizontalContentAlignment="Center"/>
-                        <Label Content="Artist Information" FontSize="15" HorizontalAlignment="Left"/>
-                        <Separator Height="2" Background="{DynamicResource SecondaryAccentBrush}"/>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
-                            </Grid.RowDefinitions>
 
-                            <TextBox Name="ArtistNameTextBox"
+        <ScrollViewer Grid.Column="1" Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <materialDesign:Flipper Grid.Column="1" Grid.Row="1" Style="{StaticResource MaterialDesignCardFlipper}" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="20" >
+                <materialDesign:Flipper.FrontContent>
+                    <Border BorderThickness="1" Background="{DynamicResource PrimaryHueDarkBrush}" >
+                        <StackPanel Margin="10 10" Orientation="Vertical" HorizontalAlignment="Stretch">
+                            <Label Content="Album To Be Added" FontSize="20" HorizontalAlignment="Center" HorizontalContentAlignment="Center"/>
+                            <Label Content="Artist Information" FontSize="15" HorizontalAlignment="Left"/>
+                            <Separator Height="2" Background="{DynamicResource SecondaryAccentBrush}"/>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <TextBox Name="ArtistNameTextBox"
                                      Grid.Column="0"
                                      Grid.Row="0"
                                      HorizontalAlignment="Center"
@@ -53,14 +54,14 @@
                                      Text="{Binding ArtistName, UpdateSourceTrigger=PropertyChanged}"
                                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                      materialDesign:HintAssist.Hint="Artist Name"/>
-                            <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" >
-                                <TextBox Name="ArtistPhotoFilePathTextBox"
+                                <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" >
+                                    <TextBox Name="ArtistPhotoFilePathTextBox"
                                          HorizontalAlignment="Center"
                                          Width="480"
                                          Text="{Binding ArtistPhotoFilePath, UpdateSourceTrigger=PropertyChanged}"
                                          Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                          materialDesign:HintAssist.Hint="Artist Photo Filepath"/>
-                                <Button Name="SelectArtistPhotoFilepath"
+                                    <Button Name="SelectArtistPhotoFilepath"
                                         Command="{Binding SelectArtistPhoto}"
                                         Height="20"
                                         Width="20"
@@ -68,10 +69,10 @@
                                         Padding="0"
                                         Style="{StaticResource MaterialDesignToolForegroundButton}"
                                         VerticalContentAlignment="Bottom">
-                                    <materialDesign:PackIcon Kind="Folder" Foreground="{DynamicResource SecondaryAccentBrush}" />
-                                </Button>
-                            </StackPanel>
-                            <TextBox Name="ArtistDescription"
+                                        <materialDesign:PackIcon Kind="Folder" Foreground="{DynamicResource SecondaryAccentBrush}" />
+                                    </Button>
+                                </StackPanel>
+                                <TextBox Name="ArtistDescription"
                                      Grid.ColumnSpan="2"
                                      Grid.Row="1"
                                      Height="60"
@@ -82,23 +83,23 @@
                                      VerticalScrollBarVisibility="Auto"
                                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                      materialDesign:HintAssist.Hint="Artist Description"/>
-                        </Grid>
-                        <Label Content="Album Information" FontSize="15" HorizontalAlignment="Left" Margin="0 10 0 0"/>
-                        <Separator Height="2" Background="{DynamicResource SecondaryAccentBrush}"/>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
-                            </Grid.RowDefinitions>
+                            </Grid>
+                            <Label Content="Album Information" FontSize="15" HorizontalAlignment="Left" Margin="0 10 0 0"/>
+                            <Separator Height="2" Background="{DynamicResource SecondaryAccentBrush}"/>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
 
-                            <TextBox Name="AlbumTitle"
+                                <TextBox Name="AlbumTitle"
                                      Grid.Column="0"
                                      Grid.ColumnSpan="2"
                                      HorizontalAlignment="Center"
@@ -106,7 +107,7 @@
                                      materialDesign:HintAssist.Hint="Album Title"
                                      Width="500"
                                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                            <TextBox Name="AlbumArtist"
+                                <TextBox Name="AlbumArtist"
                                      Grid.Column="2"
                                      Grid.ColumnSpan="2"
                                      Text="{Binding AlbumArtist, UpdateSourceTrigger=PropertyChanged}"
@@ -114,7 +115,7 @@
                                      materialDesign:HintAssist.Hint="Album Artist"
                                      Width="500"
                                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                            <TextBox Name="AlbumYear"
+                                <TextBox Name="AlbumYear"
                                      Grid.Column="0"
                                      Grid.Row="1"
                                      HorizontalAlignment="Center"
@@ -122,7 +123,7 @@
                                      materialDesign:HintAssist.Hint="Release Year"
                                      Width="120"
                                      Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                            <TextBox Name="AlbumNumberOfTracks"
+                                <TextBox Name="AlbumNumberOfTracks"
                                      Grid.Column="1"
                                      Grid.Row="1"
                                      HorizontalAlignment="Center"
@@ -130,15 +131,15 @@
                                      materialDesign:HintAssist.Hint="Number Of Tracks"
                                      Width="120"
                                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                            <StackPanel Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-                                <TextBox Name="AlbumFilePath"
+                                <StackPanel Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <TextBox Name="AlbumFilePath"
                                          Text="{Binding AlbumFilePath}"
                                          HorizontalAlignment="Left"
                                          materialDesign:HintAssist.Hint="Album File Path"
                                          Width="480"
                                          IsEnabled="{Binding SelectAlbumFolderEnabled}"
                                          Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                                <Button Name="SelectAlbumFolder"
+                                    <Button Name="SelectAlbumFolder"
                                         Command="{Binding SelectAlbumFolder}"
                                         Style="{StaticResource MaterialDesignFlatButton}"
                                         Height="20"
@@ -148,10 +149,10 @@
                                         IsEnabled="{Binding SelectAlbumFolderEnabled}"
                                         VerticalAlignment="Bottom"
                                         materialDesign:RippleAssist.IsDisabled="True">
-                                    <materialDesign:PackIcon Kind="Folder" Margin="0" Padding="0" Foreground="{DynamicResource SecondaryAccentBrush}"/>
-                                </Button>
-                            </StackPanel>
-                            <Button Name="FlipCard"
+                                        <materialDesign:PackIcon Kind="Folder" Margin="0" Padding="0" Foreground="{DynamicResource SecondaryAccentBrush}"/>
+                                    </Button>
+                                </StackPanel>
+                                <Button Name="FlipCard"
                                     Grid.Column="3"
                                     Grid.Row="2"
                                     Height="30"
@@ -161,19 +162,18 @@
                                     Command="{x:Static materialDesign:Flipper.FlipCommand}"
                                     IsEnabled="{Binding FlipCardEnabled}"
                                     Style="{StaticResource MaterialDesignRaisedAccentButton}">
-                                <materialDesign:PackIcon Kind="ArrowRight" />
-                            </Button>
-                        </Grid>
-                    </StackPanel>
-                </Border>
-            </materialDesign:Flipper.FrontContent>
-            <materialDesign:Flipper.BackContent>
-                <ScrollViewer>
-                    <Border BorderThickness="1" Background="{DynamicResource PrimaryHueDarkBrush}">
+                                    <materialDesign:PackIcon Kind="ArrowRight" />
+                                </Button>
+                            </Grid>
+                        </StackPanel>
+                    </Border>
+                </materialDesign:Flipper.FrontContent>
+                <materialDesign:Flipper.BackContent>
+                    <Border BorderThickness="1" Background="{DynamicResource PrimaryHueDarkBrush}" >
                         <StackPanel Margin="10" HorizontalAlignment="Stretch">
                             <Label Content="Song Information" FontSize="15" HorizontalAlignment="Left" Margin="0 10 0 0"/>
                             <Separator Height="2" Background="{DynamicResource SecondaryAccentBrush}" />
-                            <ItemsControl ItemsSource="{Binding AlbumSongList}" >
+                            <ItemsControl ItemsSource="{Binding AlbumSongList, UpdateSourceTrigger=PropertyChanged}" >
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
                                         <Grid>
@@ -266,21 +266,27 @@
                                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                      HorizontalAlignment="Center"
                                      Width="600"/>
-                            <Button Name="BackButton"
+                            <Label Content="Submission Sucessful" Visibility="{Binding SubmissionVisibility}" HorizontalAlignment="Center"/>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <Button Name="BackButton"
                                     Width="150"
                                     Command="{x:Static materialDesign:Flipper.FlipCommand}"
+                                    Margin="10 0 10 0"
                                     Style="{StaticResource MaterialDesignRaisedAccentButton}"
                                     Content="Back"/>
-                            <Button Name="SubmitButton"
+                                <Button Name="SubmitButton"
                                     Width="150"
+                                    Margin="10 0 10 0"
                                     Command="{Binding SubmitCommand}" 
                                     Style="{StaticResource MaterialDesignRaisedAccentButton}"
                                     Content="Submit"/>
+                            </StackPanel>
+
                         </StackPanel>
                     </Border>
-                </ScrollViewer>
-            </materialDesign:Flipper.BackContent>
-        </materialDesign:Flipper>
+                </materialDesign:Flipper.BackContent>
+            </materialDesign:Flipper>
+        </ScrollViewer>
         <!--
         <Border BorderThickness="1" Grid.Column="1" Grid.Row="1" CornerRadius="20" BorderBrush="Black" Background="{DynamicResource PrimaryHueDarkBrush}" Margin="10">
             <StackPanel Margin="30 30" Orientation="Vertical">

@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace MediaLibraryGUI.ViewModels
@@ -27,6 +28,7 @@ namespace MediaLibraryGUI.ViewModels
 
         private bool _selectAlbumFolderEnabled;
         private bool _flipCardEnabled;
+        private Visibility _submissionVisibility;
 
         private MainWindowViewModel _mainWindowVM;
 
@@ -215,6 +217,7 @@ namespace MediaLibraryGUI.ViewModels
             selectAlbumDialog.Multiselect = false;
             selectAlbumDialog.ShowPlacesList = true;
 
+            
             string albumFilePath;
             string[] fileList;
             List<Song> songList = new List<Song>();
@@ -224,6 +227,7 @@ namespace MediaLibraryGUI.ViewModels
                 AlbumFilePath = albumFilePath;
                 fileList = Directory.GetFiles(AlbumFilePath);
 
+                int index = 0;
                 foreach (string fileName in fileList)
                 {
                     if (fileName.Substring(fileName.Length - 3) == "jpg" || fileName.Substring(fileName.Length - 3) == "png")
@@ -238,11 +242,14 @@ namespace MediaLibraryGUI.ViewModels
 
                         Song newSong = new Song(fileName, songTitle, AlbumArtist);
                         newSong.AlbumTitle = AlbumTitle;
+                        newSong.TrackNumber = (uint)index + 1;
                         songList.Add(newSong);
+                        ++index;
                     }
                 }
                 FlipCardEnabled = true;
                 AlbumSongList = songList;
+                SubmissionVisibility = Visibility.Hidden;
             }
         }
 
@@ -306,20 +313,53 @@ namespace MediaLibraryGUI.ViewModels
                 if (album.Title == currentAlbum.Title && album.Artist == currentAlbum.Artist)
                 {
                     foundAlbum = true;
+                    currentAlbum.Year = album.Year;
+                    currentAlbum.NumberOfTracks = album.NumberOfTracks;
+                    currentAlbum.CoverFilePath = album.CoverFilePath;
+                    currentAlbum.Artist = album.Artist;
+
+                    album = currentAlbum;
+
                 }
             }
             if (!foundAlbum)
             {
                 MainWindowVM.Music.TotalAlbumList.Add(album);
                 artist.AlbumList.Add(album);
-                album.SongList.AddRange(AlbumSongList);
-                MainWindowVM.Music.TotalSongList.AddRange(AlbumSongList);
+            }
+            album.SongList.AddRange(AlbumSongList);
+            MainWindowVM.Music.TotalSongList.AddRange(AlbumSongList);
+
+            CleanForm();
+            SubmissionVisibility = Visibility.Visible;
+            FlipCardEnabled = false;
+        }
+
+        public Visibility SubmissionVisibility
+        {
+            get { return _submissionVisibility; }
+            set
+            {
+                _submissionVisibility = value;
+                OnPropertyRaised("SubmissionVisibility");
             }
         }
 
         public bool CanSubmit(object obj)
         {
             return true;
+        }
+
+        public void CleanForm()
+        {
+            ArtistName = "";
+            ArtistPhotoFilePath = "";
+            ArtistDescription = "";
+            AlbumTitle = "";
+            AlbumYear = "";
+            AlbumNumTracks = "";
+            AlbumFilePath = "";
+            AlbumSongList.Clear();
         }
 
         public ICommand SelectArtistPhot { get; set; }
