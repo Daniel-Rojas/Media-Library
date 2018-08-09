@@ -78,8 +78,8 @@ namespace MediaLibraryGUI.ViewModels
             _repeatValue = 0; // 0 = repeat off | 1 = repeat list | 2 = repeat single media
 
             // Initializes Media Player Button Content
-            ShuffleColor = (Brush)Application.Current.Resources["PrimaryHueMidBrush"];
-            RepeatColor = (Brush)Application.Current.Resources["PrimaryHueMidBrush"];
+            ShuffleColor = (Brush)Application.Current.Resources["PrimaryHueLightBrush"];
+            RepeatColor = (Brush)Application.Current.Resources["PrimaryHueLightBrush"];
             _repeatButtonKind = PackIconKind.Repeat;
             _volumeButtonKind = PackIconKind.VolumeHigh;
             _playButtonKind = PackIconKind.PlayCircleOutline;
@@ -428,7 +428,7 @@ namespace MediaLibraryGUI.ViewModels
             if (_shuffleOn)
             {
                 _shuffleOn = false;
-                ShuffleColor = (Brush)Application.Current.Resources["PrimaryHueMidBrush"];
+                ShuffleColor = (Brush)Application.Current.Resources["PrimaryHueLightBrush"];
             }
             else
             {
@@ -437,7 +437,7 @@ namespace MediaLibraryGUI.ViewModels
                 ShuffleColor = (Brush)Application.Current.Resources["SecondaryAccentBrush"];
                 _repeatValue = 0;
                 RepeatButtonKind = PackIconKind.Repeat;
-                RepeatColor = (Brush)Application.Current.Resources["PrimaryHueMidBrush"];
+                RepeatColor = (Brush)Application.Current.Resources["PrimaryHueLightBrush"];
             }
         }
 

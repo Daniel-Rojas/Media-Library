@@ -5,10 +5,6 @@ VisualStudioVersion = 15.0.27428.2015
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataRetrieval", "DataRetrieval\DataRetrieval.csproj", "{C042FE7E-F280-4154-ACAA-353F3011D3EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicPlayerDemo", "MusicPlayerDemo\MusicPlayerDemo.csproj", "{1596D3AE-EDE7-4FE4-B2E8-96187DF34787}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestSerialization", "TestSerialization\TestSerialization.csproj", "{89D0111F-0749-42DA-933D-BE4EAC6DF76E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaInterfaces", "MediaInterfaces\MediaInterfaces.csproj", "{2182E29E-A090-46DC-B12F-CF5306C132C6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaLibraryGUI", "MediaLibraryGUI\MediaLibraryGUI.csproj", "{822C2605-67C3-47D8-89DC-9BCDD2CD8532}"
@@ -25,14 +21,6 @@ Global
 		{C042FE7E-F280-4154-ACAA-353F3011D3EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C042FE7E-F280-4154-ACAA-353F3011D3EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C042FE7E-F280-4154-ACAA-353F3011D3EE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1596D3AE-EDE7-4FE4-B2E8-96187DF34787}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1596D3AE-EDE7-4FE4-B2E8-96187DF34787}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1596D3AE-EDE7-4FE4-B2E8-96187DF34787}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1596D3AE-EDE7-4FE4-B2E8-96187DF34787}.Release|Any CPU.Build.0 = Release|Any CPU
-		{89D0111F-0749-42DA-933D-BE4EAC6DF76E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{89D0111F-0749-42DA-933D-BE4EAC6DF76E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{89D0111F-0749-42DA-933D-BE4EAC6DF76E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{89D0111F-0749-42DA-933D-BE4EAC6DF76E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2182E29E-A090-46DC-B12F-CF5306C132C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2182E29E-A090-46DC-B12F-CF5306C132C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2182E29E-A090-46DC-B12F-CF5306C132C6}.Release|Any CPU.ActiveCfg = Release|Any CPU

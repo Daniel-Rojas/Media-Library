@@ -15,6 +15,11 @@ namespace MediaDataTypes.MusicDataTypes
         public string Genre { get; set; }
         public uint TrackNumber { get; set; }
 
+        //public Song(string filePath)
+        //{
+        //    FilePath = filePath;
+        //}
+
         public Song(string filePath, string title, string artist)
         {
             FilePath = filePath;

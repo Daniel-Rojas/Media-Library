@@ -59,8 +59,8 @@
                         <Button Name="AddMedia"
                                 Command="{Binding AddMediaCommand}"
                                 DockPanel.Dock="Right"
-                                Style="{StaticResource MaterialDesignFlatButton}"
-                                materialDesign:ShadowAssist.ShadowEdges="None"
+                                Style="{StaticResource MaterialDesignToolForegroundButton}"
+                                materialDesign:RippleAssist.IsCentered="True"
                                 VerticalContentAlignment="Center">
                             <materialDesign:PackIcon Kind="Plus" 
                                                      Foreground="{DynamicResource PrimaryHueLightBrush}" 
@@ -86,8 +86,8 @@
                     
                     <ScrollViewer Grid.Row="0"
                                   Grid.ColumnSpan="3"
-                                  VerticalScrollBarVisibility="Visible"
-                                  HorizontalScrollBarVisibility="Visible"
+                                  VerticalScrollBarVisibility="Auto"
+                                  HorizontalScrollBarVisibility="Auto"
                                   >
                         <ContentControl Content="{Binding MainFrameContent}" Name="MediaList"/>
                     </ScrollViewer>

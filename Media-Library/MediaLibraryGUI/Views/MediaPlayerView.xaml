@@ -55,7 +55,8 @@
             <StackPanel  HorizontalAlignment="Center" Orientation="Horizontal" VerticalAlignment="Center" Height="50">
                 <Button Name="ShuffleButton"
                         Command="{Binding ShuffleCommand}"
-                        Style="{StaticResource MaterialDesignFlatButton}"
+                        Style="{StaticResource MaterialDesignToolForegroundButton}"
+                        materialDesign:RippleAssist.IsCentered="True"
                         HorizontalContentAlignment="Center"
                         VerticalContentAlignment="Center"
                         Height="45"
@@ -65,7 +66,8 @@
                 <Button Name="PrevButton"
                         Command="{Binding PrevCommand}"
                         materialDesign:RippleAssist.IsDisabled="True"
-                        Style="{StaticResource MaterialDesignFlatButton}"
+                        Style="{StaticResource MaterialDesignToolForegroundButton}"
+                        materialDesign:RippleAssist.IsCentered="True"
                         HorizontalContentAlignment="Center"
                         VerticalContentAlignment="Center"
                         Height="45"
@@ -74,8 +76,8 @@
                 </Button>
                 <Button Name="PlayPauseButton"
                         Command="{Binding PlayPauseCommand}"
-                        materialDesign:RippleAssist.IsDisabled="True"
-                        Style="{StaticResource MaterialDesignFlatButton}"
+                        Style="{StaticResource MaterialDesignToolForegroundButton}"
+                        materialDesign:RippleAssist.IsCentered="True"
                         HorizontalContentAlignment="Center"
                         VerticalContentAlignment="Center"
                         Height="45"
@@ -84,8 +86,8 @@
                 </Button>
                 <Button Name="NextButton"
                         Command="{Binding NextCommand}"
-                        materialDesign:RippleAssist.IsDisabled="True"
-                        Style="{StaticResource MaterialDesignFlatButton}"
+                        materialDesign:RippleAssist.IsCentered="True"
+                        Style="{StaticResource MaterialDesignToolForegroundButton}"
                         HorizontalContentAlignment="Center"
                         VerticalContentAlignment="Center"
                         Height="45"
@@ -94,7 +96,8 @@
                 </Button>
                 <Button Name="RepeatButton"
                         Command="{Binding RepeatCommand}"
-                        Style="{StaticResource MaterialDesignFlatButton}"
+                        Style="{StaticResource MaterialDesignToolForegroundButton}"
+                        materialDesign:RippleAssist.IsCentered="True"
                         HorizontalContentAlignment="Center"
                         VerticalContentAlignment="Center"
                         Height="45"
@@ -105,8 +108,8 @@
         </StackPanel>
         <StackPanel Grid.Column="3" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Button Name="DeviceButton"
-                    materialDesign:RippleAssist.IsDisabled="True"
-                    Style="{StaticResource MaterialDesignFlatButton}"
+                    materialDesign:RippleAssist.IsCentered="True"
+                    Style="{StaticResource MaterialDesignToolForegroundButton}"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
                     Height="45"
@@ -115,8 +118,8 @@
             </Button>
             <Button Name="MuteButton"
                     Command="{Binding MuteCommand}"
-                    materialDesign:RippleAssist.IsDisabled="True"
-                    Style="{StaticResource MaterialDesignFlatButton}"
+                    materialDesign:RippleAssist.IsCentered="True"
+                    Style="{StaticResource MaterialDesignToolForegroundButton}"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
                     Height="45"

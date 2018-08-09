@@ -33,22 +33,26 @@
                 Command="{Binding AddMusicCommand}"
                 Grid.Column="0"
                 Style="{StaticResource MaterialDesignRaisedAccentButton}"
-                Width="200"
+                Margin="10"
+                Width="400"
                 />
         <Button Name="MovieButton"
                 Command="{Binding AddMovieCommand}"
                 Content="Add Movie" 
                 Grid.Column="1"
                 Style="{StaticResource MaterialDesignRaisedAccentButton}"
-                Width="200"/>
+                Margin="10"
+                Width="400"/>
         <Button Name="TVShowButton"
                 Content="Add TV Show"
                 Command="{Binding AddTVShowCommand}"
                 Grid.Column="2"
+                Margin="10"
                 Style="{StaticResource MaterialDesignRaisedAccentButton}"
-                Width="200"/>
+                Width="400"/>
 
         <ContentControl Grid.Row="1" Grid.ColumnSpan="3" Content="{Binding AddMediaFrameContent}" />
+
 
     </Grid>
 </UserControl>

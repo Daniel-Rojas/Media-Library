@@ -14,18 +14,32 @@ namespace MediaLibraryGUI.ViewModels
         private MainWindowViewModel _mainWindowVM;
         private UserControl _addMediaFrameContent;
 
+        private UserControl _addMusicView;
+        private UserControl _addFilmView;
+        private UserControl _addTvShowFilmView;
 
-
+        private AddMusicViewModel _addMusicVM;
+        
 
         public AddMediaViewModel()
         {
 
-
-
             AddMovieCommand = new RelayCommand(OnAddMovie, CanAddMovie);
             AddMusicCommand = new RelayCommand(OnAddMusic, CanAddMusic);
             AddTVShowCommand = new RelayCommand(OnAddTVShow, CanAddTVShow);
+            //InitializeViews();
+            //AddMediaFrameContent = MainWindowVM.AddMusicView;
         }
+
+        public void InitializeViews()
+        {
+
+            _addMusicView = new AddMusicView();
+            _addMusicVM = (AddMusicViewModel)_addMusicView.DataContext;
+                _addMusicVM.MainWindowVM = MainWindowVM;
+            
+        }
+        
 
         public UserControl AddMediaFrameContent
         {
@@ -47,10 +61,11 @@ namespace MediaLibraryGUI.ViewModels
             }
         }
 
+
         /********** Add Media Selection Buttons **********/
         public void OnAddMusic(object obj)
         {
-            AddMediaFrameContent = new AddMusicView();
+            AddMediaFrameContent = MainWindowVM.AddMusicView;
 
         }
 

@@ -35,15 +35,16 @@ namespace MediaLibraryGUI.ViewModels
         private UserControl _songsView;
         private UserControl _albumsView;
         private UserControl _artistView;
-        private UserControl _addMediaView;
         private UserControl _mediaPlayerView;
-
+        private UserControl _addMediaView;
+        private UserControl _addMusicView;
         // View Models
         private SongsViewModel _songsVM;
         private AlbumsViewModel _albumsVM;
         private ArtistsViewModel _artistsVM;
-        private AddMediaViewModel _addMediaVM;
         private MediaPlayerViewModel _mediaPlayerVM;
+        private AddMediaViewModel _addMediaVM;
+        private AddMusicViewModel _addMusicVM;
 
         public MainWindowViewModel()
         {
@@ -81,9 +82,11 @@ namespace MediaLibraryGUI.ViewModels
             _songsView = new SongsView();
             _albumsView = new AlbumsView();
             _artistView = new ArtistsView();
-            _addMediaView = new AddMediaView();
-            // Initializes Media Player 
             _mediaPlayerView = new MediaPlayerView();
+            _addMediaView = new AddMediaView();
+            _addMusicView = new AddMusicView();
+            // Initializes Media Player 
+            
         }
 
         public void InitializeViewModels()
@@ -91,14 +94,18 @@ namespace MediaLibraryGUI.ViewModels
             SongsVM = (SongsViewModel)_songsView.DataContext;
             AlbumsVM = (AlbumsViewModel)_albumsView.DataContext;
             ArtistsVM = (ArtistsViewModel)_artistView.DataContext;
-            AddMediaVM = (AddMediaViewModel)_addMediaView.DataContext;
             MediaPlayerVM = (MediaPlayerViewModel)_mediaPlayerView.DataContext;
+            AddMediaVM = (AddMediaViewModel)_addMediaView.DataContext;
+            AddMusicVM = (AddMusicViewModel)_addMusicView.DataContext;
 
             SongsVM.MainWindowVM = this;
             AlbumsVM.MainWindowVM = this;
             ArtistsVM.MainWindowVM = this;
-            AddMediaVM.MainWindowVM = this;
             MediaPlayerVM.MainWindowVM = this;
+            AddMediaVM.MainWindowVM = this;
+            AddMusicVM.MainWindowVM = this;
+
+            AddMediaVM.AddMediaFrameContent = AddMusicView;
         }
 
         /********** View and View Model Access Functions **********/
@@ -140,6 +147,16 @@ namespace MediaLibraryGUI.ViewModels
             {
                 _addMediaView = value;
                 OnPropertyRaised("AddMediaView");
+            }
+        }
+
+        public UserControl AddMusicView
+        {
+            get { return _addMusicView; }
+            set
+            {
+                _addMusicView = value;
+                OnPropertyRaised("AddMusicView");
             }
         }
 
@@ -191,6 +208,16 @@ namespace MediaLibraryGUI.ViewModels
             {
                 _addMediaVM = value;
                 OnPropertyRaised("AddMediaVM");
+            }
+        }
+
+        public AddMusicViewModel AddMusicVM
+        {
+            get { return _addMusicVM; }
+            set
+            {
+                _addMusicVM = value;
+                OnPropertyRaised("AddMusicVM");
             }
         }
 

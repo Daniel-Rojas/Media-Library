@@ -48,6 +48,7 @@ namespace MediaLibraryGUI.ViewModels
                 OnPropertyRaised("SongList");
                 if (MainWindowVM.MediaPlayerVM.CurrentMedia != null)
                 {
+                    _suppressSelect = true;
                     SongSearch((Song)MainWindowVM.MediaPlayerVM.CurrentMedia);
                 }
                 
@@ -74,6 +75,10 @@ namespace MediaLibraryGUI.ViewModels
                         MainWindowVM.MediaPlayerVM.PlayNewMedia();
                     }
                 }
+                else
+                {
+                    _suppressSelect = true;
+                }
             }
         }
 
@@ -94,10 +99,10 @@ namespace MediaLibraryGUI.ViewModels
                 Song song = SongList[i];
                 if (songToFind.Equals(song))
                 {
-                    _suppressSelect = true;
                     SelectedSongItem = song;
                 }
             }
+            _suppressSelect = false;
         }
 
         public MainWindowViewModel MainWindowVM
